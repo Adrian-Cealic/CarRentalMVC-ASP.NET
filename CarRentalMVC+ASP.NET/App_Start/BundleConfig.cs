@@ -23,14 +23,48 @@ namespace CarRentalMVC_ASP.NET
             bundles.Add(new Bundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js"));
 
+            bundles.Add(new Bundle("~/bundles/counterup").Include(
+                      "~/Content/lib/counterup/counterup.min.js"
+            ));
+
+            bundles.Add(new Bundle("~/bundles/easing").Include(
+                       "~/Content/lib/easing/easing.js"
+            ));
+
+            bundles.Add(new Bundle("~/bundles/lightbox").Include(
+                       "~/Content/lib/lightbox/css/*.css",
+                       "~/Content/lib/lightbox/js/*.js"
+            ));
+
+            bundles.Add(new Bundle("~/bundles/owlcarousel").Include(
+                        "~/Content/lib/owlcarousel/assets/*.css",
+                        "~/Content/lib/owlcarousel/*.js"
+            ));
+
+            bundles.Add(new Bundle("~/bundles/waypoints").Include(
+                        "~/Content/lib/waypoints/links.php",
+                        "~/Content/lib/waypoints/*.js"
+            ));
+
+            bundles.Add(new Bundle("~/bundles/wow").Include(
+                        "~/Content/lib/wow/wow.min.js"
+            ));
+
+            bundles.Add(new Bundle("~/bundles/main").Include(
+                        "~/Scripts/main.js"
+            ));
 
             //style bundles
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                "~/Content/Styles/site.css", new CssRewriteUrlTransform()
+                "~/Content/Styles/styles.css", new CssRewriteUrlTransform()
             ));
 
             bundles.Add(new StyleBundle("~/Content/bootstrap").Include(
-                "~/Content/Styles/bootstrap.css", new CssRewriteUrlTransform()
+                "~/Content/Styles/bootstrap.min.css"
+            ));
+
+            bundles.Add(new Bundle("~/bundles/animate").Include(
+            "~/Content/lib/animate/animate.css"
             ));
 
 
