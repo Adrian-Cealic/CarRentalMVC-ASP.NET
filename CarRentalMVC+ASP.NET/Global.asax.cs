@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
@@ -17,5 +15,22 @@ namespace CarRentalMVC_ASP.NET
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
+
+        // error handling
+        protected void Application_Error(object sender, EventArgs e)
+        {
+            var exception = Server.GetLastError();
+            var httpException = exception as HttpException;
+
+            // if 404
+            if (httpException != null && httpException.GetHttpCode() == 404)
+            {
+                Response.Clear();
+                Server.ClearError();
+
+                Response.Redirect("~/Home/Error");
+            }
+        }
+
     }
 }

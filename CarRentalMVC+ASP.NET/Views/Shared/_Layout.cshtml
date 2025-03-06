@@ -23,7 +23,8 @@
 
     @*nav*@
     <nav>
-        @Html.Partial("_Navbar")
+        @Html.Partial("_Topbar")
+        @Html.Partial("_NavbarHeroStart")
     </nav>
 
     @*hero*@
@@ -31,8 +32,11 @@
     @RenderBody()
 
     @*footer*@
-    <footer>
-    </footer>
+<footer>
+    @Html.Partial("_Footer")
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-secondary btn-lg-square rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>
+</footer>
 
 
     @Scripts.Render("~/bundles/jquery")

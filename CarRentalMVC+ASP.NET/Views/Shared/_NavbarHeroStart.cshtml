@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "NavbarHeroStart";
+
+    var currentController = ViewContext.RouteData.Values["controller"].ToString();
+    var currentAction = ViewContext.RouteData.Values["action"].ToString();
+}
+
+<!-- Navbar & Hero Start -->
+<div class="container-fluid nav-bar sticky-top px-0 px-lg-4 py-2 py-lg-0">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a href="@Url.Action("Index", "Home")" class="navbar-brand p-0">
+                <h1 class="display-6 text-primary">
+                    <i class="fas fa-car-alt me-3"></i>Cental
+                </h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="fa fa-bars"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav mx-auto py-0">
+                    @Html.ActionLink("Home", "Index", "Home", null, new { @class = currentController == "Home" && currentAction == "Index" ? "nav-item nav-link active" : "nav-item nav-link" })
+                    @Html.ActionLink("About", "About", "Home", null, new { @class = currentController == "Home" && currentAction == "About" ? "nav-item nav-link active" : "nav-item nav-link" })
+                    @Html.ActionLink("Service", "Service", "Home", null, new { @class = currentController == "Home" && currentAction == "Service" ? "nav-item nav-link active" : "nav-item nav-link" })
+                    @Html.ActionLink("Blog", "Blog", "Home", null, new { @class = currentController == "Home" && currentAction == "Blog" ? "nav-item nav-link active" : "nav-item nav-link" })
+
+
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                        <div class="dropdown-menu m-0">
+                            @Html.ActionLink("Our Feature", "Feature", "Home", null, new { @class = "dropdown-item" })
+                            @Html.ActionLink("Our Cars", "Cars", "Home", null, new { @class = "dropdown-item" })
+                            @Html.ActionLink("Our Team", "Team", "Home", null, new { @class = "dropdown-item" })
+                            @Html.ActionLink("Testimonials", "Testimonial", "Home", null, new { @class = "dropdown-item" })
+                        </div>
+                    </div>
+                    @Html.ActionLink("Contact", "Contact", "Home", null, new { @class = "nav-item nav-link" })
+                </div>
+                <a href="#" class="btn btn-primary rounded-pill py-2 px-4">Get Started</a>
+            </div>
+        </nav>
+    </div>
+</div>
+<!-- Navbar & Hero End -->
