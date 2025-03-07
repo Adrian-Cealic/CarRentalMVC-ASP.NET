@@ -4,5 +4,11 @@
     "inputFiles": [
       "Content/bootstrap.css"
     ]
+  },
+  {
+    "outputFileName": "Content/Styles/bootstrap.min.css",
+    "inputFiles": [
+      "Content/Styles/bootstrap.css"
+    ]
   }
 ]

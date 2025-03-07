@@ -31,19 +31,20 @@ namespace CarRentalMVC_ASP.NET
                        "~/Content/lib/easing/easing.js"
             ));
 
-            bundles.Add(new Bundle("~/bundles/lightbox").Include(
-                       "~/Content/lib/lightbox/css/*.css",
-                       "~/Content/lib/lightbox/js/*.js"
+            bundles.Add(new Bundle("~/bundles/lightbox/css").Include(
+                       "~/Content/lib/lightbox/css/*.css"
+            ));
+            bundles.Add(new Bundle("~/bundles/lightbox/script").Include(
+           "~/Content/lib/lightbox/js/*.js"
             ));
 
-            bundles.Add(new Bundle("~/bundles/owlcarousel").Include(
-                        "~/Content/lib/owlcarousel/assets/*.css",
-                        "~/Content/lib/owlcarousel/*.js"
+
+            bundles.Add(new Bundle("~/bundles/owlcarouselscript").Include(
+            "~/Content/lib/owlcarousel/owl.carousel.js"
             ));
 
             bundles.Add(new Bundle("~/bundles/waypoints").Include(
-                        "~/Content/lib/waypoints/links.php",
-                        "~/Content/lib/waypoints/*.js"
+                        "~/Content/lib/waypoints/waypoints.min.js"
             ));
 
             bundles.Add(new Bundle("~/bundles/wow").Include(
@@ -66,7 +67,9 @@ namespace CarRentalMVC_ASP.NET
             bundles.Add(new Bundle("~/bundles/animate").Include(
             "~/Content/lib/animate/animate.css"
             ));
-
+            bundles.Add(new Bundle("~/bundles/owlcarouselcss").Include(
+            "~/Content/lib/owlcarousel/assets/*.css"
+            ));
 
 
         }
