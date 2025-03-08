@@ -1,0 +1,304 @@
+@{
+    ViewBag.Title = "Our Services";
+}
+
+<!-- Header Banner -->
+<div class="container-fluid bg-primary py-5 mb-5">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 text-center">
+                <h1 class="display-4 text-white animated slideInDown mb-4">Our Services</h1>
+                <p class="fs-5 text-white mb-4">@ViewBag.Message</p>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center">
+                        <li class="breadcrumb-item"><a class="text-white" href="@Url.Action("Index", "Home")">Home</a></li>
+                        <li class="breadcrumb-item text-white active" aria-current="page">Services</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Main Services Section -->
+<div class="container py-5">
+    <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
+        <h1 class="display-5 text-capitalize mb-3">Our Premium <span class="text-primary">Services</span></h1>
+        <p class="mb-0">
+            At Cental, we offer a wide range of services designed to make your car rental experience as smooth and enjoyable as possible. From flexible rental options to premium add-ons, we've got you covered.
+        </p>
+    </div>
+
+    <div class="row g-4">
+        <!-- Service Item 1 -->
+        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="service-item bg-light rounded h-100 p-5">
+                <div class="d-flex align-items-center mb-4">
+                    <div class="service-icon flex-shrink-0">
+                        <i class="bi bi-car-front-fill text-primary fs-1"></i>
+                    </div>
+                    <div class="ms-4">
+                        <h5 class="mb-1">Car Rental</h5>
+                        <p class="mb-0 text-muted">Short & Long Term</p>
+                    </div>
+                </div>
+                <p>Choose from our extensive fleet of vehicles ranging from economy cars to luxury SUVs. We offer flexible rental periods from a single day to monthly contracts.</p>
+                <a href="@Url.Action("Cars", "Home")" class="btn btn-outline-primary mt-2">View Our Fleet</a>
+            </div>
+        </div>
+
+        <!-- Service Item 2 -->
+        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+            <div class="service-item bg-light rounded h-100 p-5">
+                <div class="d-flex align-items-center mb-4">
+                    <div class="service-icon flex-shrink-0">
+                        <i class="bi bi-airplane-fill text-primary fs-1"></i>
+                    </div>
+                    <div class="ms-4">
+                        <h5 class="mb-1">Airport Transfers</h5>
+                        <p class="mb-0 text-muted">Convenient Pickup</p>
+                    </div>
+                </div>
+                <p>Skip the taxi lines. We offer convenient airport pickup and drop-off services, with our staff meeting you directly at the arrivals area of major airports.</p>
+                <a href="@Url.Action("Contact", "Home")" class="btn btn-outline-primary mt-2">Book Airport Pickup</a>
+            </div>
+        </div>
+
+        <!-- Service Item 3 -->
+        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+            <div class="service-item bg-light rounded h-100 p-5">
+                <div class="d-flex align-items-center mb-4">
+                    <div class="service-icon flex-shrink-0">
+                        <i class="bi bi-shield-check text-primary fs-1"></i>
+                    </div>
+                    <div class="ms-4">
+                        <h5 class="mb-1">Insurance Options</h5>
+                        <p class="mb-0 text-muted">Full Coverage</p>
+                    </div>
+                </div>
+                <p>Drive with peace of mind with our comprehensive insurance packages. Choose from basic coverage to premium protection for a worry-free rental experience.</p>
+                <a href="#insurance-section" class="btn btn-outline-primary mt-2">View Coverage Options</a>
+            </div>
+        </div>
+
+        <!-- Service Item 4 -->
+        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="service-item bg-light rounded h-100 p-5">
+                <div class="d-flex align-items-center mb-4">
+                    <div class="service-icon flex-shrink-0">
+                        <i class="bi bi-person-badge text-primary fs-1"></i>
+                    </div>
+                    <div class="ms-4">
+                        <h5 class="mb-1">Chauffeur Service</h5>
+                        <p class="mb-0 text-muted">Professional Drivers</p>
+                    </div>
+                </div>
+                <p>Don't want to drive? Our professional chauffeurs are at your service. Ideal for business trips, special events, or simply enjoying a stress-free journey.</p>
+                <a href="@Url.Action("Contact", "Home")" class="btn btn-outline-primary mt-2">Hire a Chauffeur</a>
+            </div>
+        </div>
+
+        <!-- Service Item 5 -->
+        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+            <div class="service-item bg-light rounded h-100 p-5">
+                <div class="d-flex align-items-center mb-4">
+                    <div class="service-icon flex-shrink-0">
+                        <i class="bi bi-gear-wide-connected text-primary fs-1"></i>
+                    </div>
+                    <div class="ms-4">
+                        <h5 class="mb-1">24/7 Roadside Assistance</h5>
+                        <p class="mb-0 text-muted">Always Available</p>
+                    </div>
+                </div>
+                <p>Our roadside assistance team is available around the clock to help with any issues you might encounter during your rental period, from flat tires to lockouts.</p>
+                <a href="#" class="btn btn-outline-primary mt-2">Learn More</a>
+            </div>
+        </div>
+
+        <!-- Service Item 6 -->
+        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+            <div class="service-item bg-light rounded h-100 p-5">
+                <div class="d-flex align-items-center mb-4">
+                    <div class="service-icon flex-shrink-0">
+                        <i class="bi bi-pin-map-fill text-primary fs-1"></i>
+                    </div>
+                    <div class="ms-4">
+                        <h5 class="mb-1">One-Way Rentals</h5>
+                        <p class="mb-0 text-muted">Flexible Drop-off</p>
+                    </div>
+                </div>
+                <p>Need to travel from point A to point B without returning? Our one-way rental service allows you to drop off your vehicle at a different location from where you picked it up.</p>
+                <a href="@Url.Action("Contact", "Home")" class="btn btn-outline-primary mt-2">Inquire Now</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Premium Add-ons Section -->
+<div class="container-fluid py-5 bg-light" id="insurance-section">
+    <div class="container py-5">
+        <h2 class="text-center mb-5">Premium Add-ons & Insurance Options</h2>
+        
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body text-center p-4">
+                        <div class="mb-4">
+                            <i class="bi bi-geo-alt text-primary" style="font-size: 3rem;"></i>
+                        </div>
+                        <h4 class="mb-3">GPS Navigation</h4>
+                        <p class="mb-4">Never get lost with our premium GPS navigation systems, updated with the latest maps and points of interest.</p>
+                        <h5 class="text-primary">$5.99/day</h5>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body text-center p-4">
+                        <div class="mb-4">
+                            <i class="bi bi-car-front text-primary" style="font-size: 3rem;"></i>
+                        </div>
+                        <h4 class="mb-3">Child Safety Seat</h4>
+                        <p class="mb-4">Travel safely with your little ones. We offer infant, toddler, and booster seats that meet all safety standards.</p>
+                        <h5 class="text-primary">$7.99/day</h5>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body text-center p-4">
+                        <div class="mb-4">
+                            <i class="bi bi-shield text-primary" style="font-size: 3rem;"></i>
+                        </div>
+                        <h4 class="mb-3">Basic Insurance</h4>
+                        <p class="mb-4">Our standard coverage includes collision damage waiver and theft protection with a reasonable deductible.</p>
+                        <h5 class="text-primary">$12.99/day</h5>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body text-center p-4">
+                        <div class="mb-4">
+                            <i class="bi bi-shield-check text-primary" style="font-size: 3rem;"></i>
+                        </div>
+                        <h4 class="mb-3">Premium Coverage</h4>
+                        <p class="mb-4">Our comprehensive protection package includes zero deductible, roadside assistance, and personal effects coverage.</p>
+                        <h5 class="text-primary">$24.99/day</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Service Process Section -->
+<div class="container py-5">
+    <div class="text-center mb-5">
+        <h2 class="display-5 mb-3">How It <span class="text-primary">Works</span></h2>
+        <p class="fs-5">Renting a car with Cental is quick and easy. Follow these simple steps:</p>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-10 mx-auto">
+            <div class="row g-4">
+                <div class="col-md-3 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="text-center">
+                        <div class="service-item p-4 mb-4">
+                            <h4>Choose Your Car</h4>
+                            <p class="mb-0">Browse our fleet and select the perfect vehicle for your needs.</p>
+                            <div class="steps-number">01</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="text-center">
+                        <div class="service-item p-4 mb-4">
+                            <h4>Make Reservation</h4>
+                            <p class="mb-0">Book online or give us a call to secure your vehicle.</p>
+                            <div class="steps-number">02</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="text-center">
+                        <div class="service-item p-4 mb-4">
+                            <h4>Pick Up Vehicle</h4>
+                            <p class="mb-0">Complete paperwork and collect your keys at our location.</p>
+                            <div class="steps-number">03</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 wow fadeInUp" data-wow-delay="0.7s">
+                    <div class="text-center">
+                        <div class="service-item p-4 mb-4">
+                            <h4>Enjoy Your Trip</h4>
+                            <p class="mb-0">Hit the road with confidence and return the car when done.</p>
+                            <div class="steps-number">04</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CTA Section -->
+<div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container py-5">
+        <div class="row g-5">
+            <div class="col-lg-7">
+                <h1 class="display-5 mb-4">Need a custom service package?</h1>
+                <p class="fs-5 mb-4">We understand that every customer has unique needs. Contact our team to discuss custom rental solutions for businesses, events, or special occasions.</p>
+                <a href="@Url.Action("Contact", "Home")" class="btn btn-primary py-3 px-5">Contact Us Today</a>
+            </div>
+            <div class="col-lg-5 text-center">
+                <img src="~/Content/img/car-1.png" class="img-fluid rounded" alt="Custom Service">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap Icons CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+<style>
+    .service-icon {
+        width: 70px;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background-color: rgba(var(--bs-primary-rgb), 0.1);
+    }
+    
+    .steps-number {
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        font-size: 40px;
+        font-weight: 700;
+        color: rgba(var(--bs-primary-rgb), 0.2);
+    }
+    
+    .service-item {
+        position: relative;
+        overflow: hidden;
+        background: var(--bs-light);
+        box-shadow: 0 0 45px rgba(0, 0, 0, .07);
+        transition: .5s;
+        border-radius: 8px;
+        height: 100%;
+    }
+    
+    .service-item:hover {
+        transform: translateY(-10px);
+    }
+</style> 

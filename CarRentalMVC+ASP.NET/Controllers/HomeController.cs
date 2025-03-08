@@ -392,5 +392,13 @@ namespace CarRentalMVC_ASP.NET.Controllers
             return View(cars);
         }
 
+        // Action for service page
+        public ActionResult Service()
+        {
+            ViewBag.Message = "Discover our comprehensive range of car rental services tailored to meet your needs.";
+
+            return View();
+        }
+
     }
 }
