@@ -1,8 +1,145 @@
 ﻿@{
-    ViewBag.Title = "About";
+    ViewBag.Title = "About Us";
 }
-<main aria-labelledby="title">
-    <h2 id="title">@ViewBag.Title.</h2>
-    <h3>@ViewBag.Message</h3>
 
-</main>
+<!-- Header Banner -->
+<div class="container-fluid bg-primary py-5 mb-5">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 text-center">
+                <h1 class="display-4 text-white animated slideInDown mb-4">About Cental</h1>
+                <p class="fs-5 text-white mb-4">@ViewBag.Message</p>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center">
+                        <li class="breadcrumb-item"><a class="text-white" href="@Url.Action("Index", "Home")">Home</a></li>
+                        <li class="breadcrumb-item text-white active" aria-current="page">About</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- About Section -->
+<div class="container py-5">
+    <div class="row g-5">
+        <!-- Company Story -->
+        <div class="col-lg-6">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body p-5">
+                    <h2 class="mb-4">Our Story</h2>
+                    <p>Founded in 2010, Cental has grown from a small local car rental service to a nationwide provider of quality rental vehicles. Our journey began with just 5 cars and a simple mission: to make car rental easy, affordable, and enjoyable for everyone.</p>
+                    
+                    <p>Over the years, we've expanded our fleet to include a wide range of vehicles - from economy cars to luxury SUVs - while maintaining our commitment to exceptional customer service.</p>
+                    
+                    <h4 class="mt-4">Our Mission</h4>
+                    <p>At Cental, our mission is to provide reliable, convenient, and affordable transportation solutions that exceed our customers' expectations. We strive to make every rental experience seamless and stress-free.</p>
+                    
+                    <h4 class="mt-4">Our Values</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i> Customer Satisfaction</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i> Quality & Safety</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i> Transparency</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i> Innovation</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i> Environmental Responsibility</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Why Choose Us -->
+        <div class="col-lg-6">
+            <div class="card border-0 shadow-sm mb-4">
+                <div class="card-body p-5">
+                    <h2 class="mb-4">Why Choose Us</h2>
+                    
+                    <div class="d-flex align-items-center mb-4">
+                        <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                            <i class="bi bi-car-front text-white fs-4"></i>
+                        </div>
+                        <div class="ms-3">
+                            <h5 class="mb-1">Modern Fleet</h5>
+                            <p class="mb-0">Our vehicles are regularly maintained and replaced to ensure you're always driving a modern, reliable car.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex align-items-center mb-4">
+                        <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                            <i class="bi bi-cash-coin text-white fs-4"></i>
+                        </div>
+                        <div class="ms-3">
+                            <h5 class="mb-1">Competitive Rates</h5>
+                            <p class="mb-0">We offer transparent pricing with no hidden fees, and our rates are consistently among the most competitive in the industry.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex align-items-center mb-4">
+                        <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                            <i class="bi bi-headset text-white fs-4"></i>
+                        </div>
+                        <div class="ms-3">
+                            <h5 class="mb-1">24/7 Support</h5>
+                            <p class="mb-0">Our customer service team is available around the clock to assist with any questions or concerns.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex align-items-center">
+                        <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                            <i class="bi bi-shield-check text-white fs-4"></i>
+                        </div>
+                        <div class="ms-3">
+                            <h5 class="mb-1">Full Insurance Coverage</h5>
+                            <p class="mb-0">Peace of mind comes standard with every rental. Our comprehensive insurance options keep you protected.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card border-0 shadow-sm">
+                <div class="card-body p-5 text-center">
+                    <h4 class="mb-4">Ready to experience the Cental difference?</h4>
+                    <a href="@Url.Action("Cars", "Home")" class="btn btn-primary px-4 py-2">Browse Our Fleet</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Stats Section -->
+<div class="container-fluid py-5 bg-light">
+    <div class="container py-5">
+        <div class="row g-4 text-center">
+            <div class="col-md-3 col-6">
+                <div class="counter-item">
+                    <i class="bi bi-car-front display-4 text-primary mb-3"></i>
+                    <h1 class="mb-0" data-toggle="counter-up">500</h1>
+                    <p class="mb-0">Vehicles</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="counter-item">
+                    <i class="bi bi-people display-4 text-primary mb-3"></i>
+                    <h1 class="mb-0" data-toggle="counter-up">25000</h1>
+                    <p class="mb-0">Happy Clients</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="counter-item">
+                    <i class="bi bi-geo-alt display-4 text-primary mb-3"></i>
+                    <h1 class="mb-0" data-toggle="counter-up">50</h1>
+                    <p class="mb-0">Locations</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="counter-item">
+                    <i class="bi bi-award display-4 text-primary mb-3"></i>
+                    <h1 class="mb-0" data-toggle="counter-up">12</h1>
+                    <p class="mb-0">Years Experience</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap Icons CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">

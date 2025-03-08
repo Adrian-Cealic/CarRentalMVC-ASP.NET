@@ -38,7 +38,7 @@ namespace CarRentalMVC_ASP.NET.Controllers
         // Action for about page
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Learn more about our car rental service and our commitment to quality.";
 
             return View();
         }
