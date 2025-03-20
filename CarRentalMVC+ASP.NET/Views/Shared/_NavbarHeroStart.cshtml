@@ -18,7 +18,7 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="fa fa-bars"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="collapse navbar-collapse gap-3" id="navbarCollapse">
                 <div class="navbar-nav mx-auto py-0">
                     @Html.ActionLink("Home", "Index", "Home", null, new { @class = currentController == "Home" && currentAction == "Index" ? "nav-item nav-link active" : "nav-item nav-link" })
                     @Html.ActionLink("About", "About", "Home", null, new { @class = currentController == "Home" && currentAction == "About" ? "nav-item nav-link active" : "nav-item nav-link" })
@@ -37,9 +37,19 @@
                     </div>
                     @Html.ActionLink("Contact", "Contact", "Home", null, new { @class = "nav-item nav-link" })
 
-                    @Html.ActionLink("Test", "Index", "Test", null, new { @class = "nav-item nav-link" })
                 </div>
                 <a href="#" class="btn btn-primary rounded-pill py-2 px-4">Get Started</a>
+                <ul class="text-end list-inline">
+                    @if (Session["UserId"] != null)
+                    {
+                        <li>Welcome, @Session["Username"]!</li>
+                        <li><a href="@Url.Action("Logout", "Auth")">Logout</a></li>
+                    }
+                    else
+                    {
+                        <li><a href="@Url.Action("Login", "Auth")">Login</a></li>
+                    }
+                </ul>
             </div>
         </nav>
     </div>
