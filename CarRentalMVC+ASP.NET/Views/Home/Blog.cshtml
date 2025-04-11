@@ -1,0 +1,281 @@
+@{
+    ViewBag.Title = "Our Blog";
+}
+
+<!-- Header Banner -->
+<div class="container-fluid bg-primary py-5 mb-5">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 text-center">
+                <h1 class="display-4 text-white animated slideInDown mb-4">Cental Blog</h1>
+                <p class="fs-5 text-white mb-4">Latest news, travel tips, and automotive insights from our experts</p>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center">
+                        <li class="breadcrumb-item"><a class="text-white" href="@Url.Action("Index", "Home")">Home</a></li>
+                        <li class="breadcrumb-item text-white active" aria-current="page">Blog</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Blog Section -->
+<div class="container py-5">
+    <div class="row g-5">
+        <!-- Blog Post List -->
+        <div class="col-lg-8">
+            <!-- Featured Post -->
+            <div class="blog-item mb-5 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="position-relative overflow-hidden rounded">
+                    <img src="~/Content/img/blog-1.jpg" class="img-fluid w-100" alt="Blog Image">
+                    <div class="blog-overlay">
+                        <a class="btn btn-lg btn-primary px-3" href="#featured">Read More</a>
+                    </div>
+                </div>
+                <div class="blog-content bg-light rounded p-4">
+                    <div class="d-flex justify-content-between mb-3">
+                        <span class="text-primary"><i class="far fa-calendar-alt me-2"></i>October 15, 2023</span>
+                        <span class="text-muted"><i class="fas fa-user me-2"></i>Admin</span>
+                    </div>
+                    <h4 class="text-uppercase mb-3">10 Tips for a Great Road Trip Adventure</h4>
+                    <p class="mb-4">Planning a road trip? From choosing the right rental car to mapping your route and packing essentials, our comprehensive guide covers everything you need for an unforgettable journey.</p>
+                    <a class="btn btn-primary py-2 px-4" href="#featured">Read More</a>
+                </div>
+            </div>
+
+            <!-- Regular Posts -->
+            <div class="row g-4">
+                <!-- Post 1 -->
+                <div class="col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="blog-item h-100">
+                        <div class="position-relative overflow-hidden rounded">
+                            <img src="~/Content/img/blog-2.jpg" class="img-fluid w-100" alt="Blog Image">
+                            <div class="blog-overlay">
+                                <a class="btn btn-lg btn-primary px-3" href="#blog1">Read More</a>
+                            </div>
+                        </div>
+                        <div class="blog-content bg-light rounded p-4 h-100">
+                            <div class="d-flex justify-content-between mb-3">
+                                <span class="text-primary"><i class="far fa-calendar-alt me-2"></i>October 5, 2023</span>
+                                <span class="text-muted"><i class="fas fa-user me-2"></i>Admin</span>
+                            </div>
+                            <h5 class="text-uppercase mb-3">How to Choose the Right Rental Car for Your Needs</h5>
+                            <p class="mb-4">SUV or sedan? Economy or luxury? Learn how to select the perfect rental vehicle based on your travel plans, budget, and personal preferences.</p>
+                            <a class="btn btn-sm btn-primary" href="#blog1">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Post 2 -->
+                <div class="col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="blog-item h-100">
+                        <div class="position-relative overflow-hidden rounded">
+                            <img src="~/Content/img/blog-3.jpg" class="img-fluid w-100" alt="Blog Image">
+                            <div class="blog-overlay">
+                                <a class="btn btn-lg btn-primary px-3" href="#blog2">Read More</a>
+                            </div>
+                        </div>
+                        <div class="blog-content bg-light rounded p-4 h-100">
+                            <div class="d-flex justify-content-between mb-3">
+                                <span class="text-primary"><i class="far fa-calendar-alt me-2"></i>September 28, 2023</span>
+                                <span class="text-muted"><i class="fas fa-user me-2"></i>Admin</span>
+                            </div>
+                            <h5 class="text-uppercase mb-3">The Benefits of Electric Vehicle Rentals</h5>
+                            <p class="mb-4">Curious about electric cars? Renting an EV is a great way to experience this technology. Discover the advantages and what to expect when renting an electric vehicle.</p>
+                            <a class="btn btn-sm btn-primary" href="#blog2">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Post 3 -->
+                <div class="col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="blog-item h-100">
+                        <div class="position-relative overflow-hidden rounded">
+                            <img src="~/Content/img/attachment-img.jpg" class="img-fluid w-100" alt="Blog Image">
+                            <div class="blog-overlay">
+                                <a class="btn btn-lg btn-primary px-3" href="#blog3">Read More</a>
+                            </div>
+                        </div>
+                        <div class="blog-content bg-light rounded p-4 h-100">
+                            <div class="d-flex justify-content-between mb-3">
+                                <span class="text-primary"><i class="far fa-calendar-alt me-2"></i>September 15, 2023</span>
+                                <span class="text-muted"><i class="fas fa-user me-2"></i>Admin</span>
+                            </div>
+                            <h5 class="text-uppercase mb-3">Understanding Rental Car Insurance Options</h5>
+                            <p class="mb-4">Confused by CDW, LDW, and other insurance abbreviations? Our guide breaks down rental car insurance options to help you make informed decisions.</p>
+                            <a class="btn btn-sm btn-primary" href="#blog3">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Post 4 -->
+                <div class="col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="blog-item h-100">
+                        <div class="position-relative overflow-hidden rounded">
+                            <img src="~/Content/img/about-img.jpg" class="img-fluid w-100" alt="Blog Image">
+                            <div class="blog-overlay">
+                                <a class="btn btn-lg btn-primary px-3" href="#blog4">Read More</a>
+                            </div>
+                        </div>
+                        <div class="blog-content bg-light rounded p-4 h-100">
+                            <div class="d-flex justify-content-between mb-3">
+                                <span class="text-primary"><i class="far fa-calendar-alt me-2"></i>September 5, 2023</span>
+                                <span class="text-muted"><i class="fas fa-user me-2"></i>Admin</span>
+                            </div>
+                            <h5 class="text-uppercase mb-3">Top 5 Scenic Drives in the United States</h5>
+                            <p class="mb-4">From coastal highways to mountain passes, discover America's most breathtaking road trip routes perfect for your next car rental adventure.</p>
+                            <a class="btn btn-sm btn-primary" href="#blog4">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <nav class="mt-5 wow fadeInUp" data-wow-delay="0.1s">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="col-lg-4">
+            <!-- Search -->
+            <div class="mb-5 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="sidebar-item bg-light rounded p-4">
+                    <h4 class="mb-4">Search</h4>
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search blog posts...">
+                        <button class="btn btn-primary">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Categories -->
+            <div class="mb-5 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="sidebar-item bg-light rounded p-4">
+                    <h4 class="mb-4">Categories</h4>
+                    <div class="d-flex flex-column justify-content-start">
+                        <a class="p-2 fw-normal" href="#"><i class="fas fa-angle-right me-2"></i>Travel Tips</a>
+                        <a class="p-2 fw-normal" href="#"><i class="fas fa-angle-right me-2"></i>Car Guides</a>
+                        <a class="p-2 fw-normal" href="#"><i class="fas fa-angle-right me-2"></i>Road Trips</a>
+                        <a class="p-2 fw-normal" href="#"><i class="fas fa-angle-right me-2"></i>Safety</a>
+                        <a class="p-2 fw-normal" href="#"><i class="fas fa-angle-right me-2"></i>Destination Guides</a>
+                        <a class="p-2 fw-normal" href="#"><i class="fas fa-angle-right me-2"></i>Company News</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Posts -->
+            <div class="mb-5 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="sidebar-item bg-light rounded p-4">
+                    <h4 class="mb-4">Recent Posts</h4>
+                    <!-- Recent Post 1 -->
+                    <div class="d-flex mb-3">
+                        <img src="~/Content/img/blog-1.jpg" class="img-fluid rounded" style="width: 100px; height: 70px; object-fit: cover;" alt="Recent Post">
+                        <div class="ms-3">
+                            <a href="#" class="h6 fw-semi-bold">10 Tips for a Great Road Trip Adventure</a>
+                            <p class="mb-0 small"><i class="far fa-calendar-alt me-1"></i>October 15, 2023</p>
+                        </div>
+                    </div>
+                    <!-- Recent Post 2 -->
+                    <div class="d-flex mb-3">
+                        <img src="~/Content/img/blog-2.jpg" class="img-fluid rounded" style="width: 100px; height: 70px; object-fit: cover;" alt="Recent Post">
+                        <div class="ms-3">
+                            <a href="#" class="h6 fw-semi-bold">How to Choose the Right Rental Car</a>
+                            <p class="mb-0 small"><i class="far fa-calendar-alt me-1"></i>October 5, 2023</p>
+                        </div>
+                    </div>
+                    <!-- Recent Post 3 -->
+                    <div class="d-flex mb-3">
+                        <img src="~/Content/img/blog-3.jpg" class="img-fluid rounded" style="width: 100px; height: 70px; object-fit: cover;" alt="Recent Post">
+                        <div class="ms-3">
+                            <a href="#" class="h6 fw-semi-bold">The Benefits of Electric Vehicle Rentals</a>
+                            <p class="mb-0 small"><i class="far fa-calendar-alt me-1"></i>September 28, 2023</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tags -->
+            <div class="mb-5 wow fadeInUp" data-wow-delay="0.7s">
+                <div class="sidebar-item bg-light rounded p-4">
+                    <h4 class="mb-4">Tags</h4>
+                    <div class="d-flex flex-wrap">
+                        <a href="#" class="btn btn-outline-primary m-1">Travel</a>
+                        <a href="#" class="btn btn-outline-primary m-1">Cars</a>
+                        <a href="#" class="btn btn-outline-primary m-1">Road Trip</a>
+                        <a href="#" class="btn btn-outline-primary m-1">Insurance</a>
+                        <a href="#" class="btn btn-outline-primary m-1">Safety</a>
+                        <a href="#" class="btn btn-outline-primary m-1">Electric</a>
+                        <a href="#" class="btn btn-outline-primary m-1">Luxury</a>
+                        <a href="#" class="btn btn-outline-primary m-1">Adventure</a>
+                        <a href="#" class="btn btn-outline-primary m-1">Budget</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Subscribe -->
+            <div class="wow fadeInUp" data-wow-delay="0.9s">
+                <div class="sidebar-item bg-light rounded p-4">
+                    <h4 class="mb-4">Newsletter</h4>
+                    <div>
+                        <p>Subscribe to our newsletter for the latest car rental deals and travel tips.</p>
+                        <div class="position-relative">
+                            <input class="form-control" type="email" placeholder="Your email">
+                            <button type="submit" class="btn btn-primary position-absolute top-0 end-0">Subscribe</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .blog-item {
+        transition: all 0.3s;
+    }
+    
+    .blog-item:hover {
+        transform: translateY(-5px);
+    }
+    
+    .blog-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0, 0, 0, 0.4);
+        opacity: 0;
+        transition: all 0.5s;
+    }
+    
+    .blog-item:hover .blog-overlay {
+        opacity: 1;
+    }
+    
+    .sidebar-item a:hover {
+        background-color: rgba(var(--bs-primary-rgb), 0.1);
+        color: var(--bs-primary) !important;
+    }
+</style> 

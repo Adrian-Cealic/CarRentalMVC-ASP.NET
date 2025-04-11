@@ -400,5 +400,13 @@ namespace CarRentalMVC_ASP.NET.Controllers
             return View();
         }
 
+        // Action for blog page
+        public ActionResult Blog()
+        {
+            ViewBag.Message = "Stay updated with the latest news, travel tips, and automotive insights from our experts.";
+
+            return View();
+        }
+
     }
 }
