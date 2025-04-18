@@ -38,5 +38,19 @@ namespace CarRentalMVC_ASP.NET.Controllers
         {
             return View();  
         }
+        public ActionResult AdminPanel()
+        {
+            // Check if the user is logged in and has the 'Admin' role
+            var userRole = Session["UserRole"] as string; // Retrieve the role from the session
+
+            if (userRole != "Admin")
+            {
+                return RedirectToAction("Index", "Home"); // Redirect non-admin users to homepage
+            }
+
+            // If the user is an admin, show the Admin Panel
+            return View();
+        }
+
     }
 }

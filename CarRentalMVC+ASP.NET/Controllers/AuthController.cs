@@ -1,7 +1,8 @@
-﻿using System.Web;
+﻿using System;
+using System.Web;
 using System.Web.Mvc;
 using BusinessLogic;
-using Domain;
+using Data_Access_Layer;
 
 namespace MyMvcProject.Controllers
 {
@@ -11,14 +12,12 @@ namespace MyMvcProject.Controllers
 
         public AuthController()
         {
-            _authService = new AuthService();
+            var context = new AppDbContext(); // manually create the context
+            _authService = new AuthService(context); // pass it to your service
         }
 
-        public ActionResult Login()
-        {
-            return View();
-        }
-
+        // Login Action (already exists)
+        public ActionResult Login() => View();
 
         [HttpPost]
         public ActionResult Login(string username, string password)
@@ -29,16 +28,43 @@ namespace MyMvcProject.Controllers
                 Session["UserId"] = user.Id;
                 Session["Username"] = user.Username;
                 Session["UserRole"] = user.Role;
-                return RedirectToAction("Index", "Home"); // Redirect to homepage
+                return RedirectToAction("Index", "Home");
             }
+
             ViewBag.Message = "Invalid credentials!";
             return View();
         }
 
+        // Logout Action (already exists)
         public ActionResult Logout()
         {
             Session.Clear();
             return RedirectToAction("Login");
         }
+
+        // Register GET Action
+        public ActionResult Register() => View();
+
+        // Register POST Action
+        [HttpPost]
+        public ActionResult Register(string username, string password, string confirmPassword)
+        {
+            // Check if passwords match
+            if (password != confirmPassword)
+            {
+                ViewBag.Message = "Passwords do not match.";
+                return View();
+            }
+
+            // Call Register method in AuthService
+            var success = _authService.Register(username, password);
+
+            if (success)
+                return RedirectToAction("Login");
+
+            ViewBag.Message = "Username already exists.";
+            return View();
+        }
     }
+
 }

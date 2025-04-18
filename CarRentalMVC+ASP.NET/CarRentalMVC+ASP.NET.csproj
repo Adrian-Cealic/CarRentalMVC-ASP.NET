@@ -186,7 +186,6 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
-    <Compile Include="Db\AppDbContext.cs" />
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -195,6 +194,10 @@
     <Compile Include="Migrations\202504071320033_InitialCreate.cs" />
     <Compile Include="Migrations\202504071320033_InitialCreate.Designer.cs">
       <DependentUpon>202504071320033_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202504181444419_UpdateUserTable.cs" />
+    <Compile Include="Migrations\202504181444419_UpdateUserTable.Designer.cs">
+      <DependentUpon>202504181444419_UpdateUserTable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -319,6 +322,8 @@
     <Content Include="Scripts\bootstrap.bundle.js.map" />
     <Content Include="Scripts\jquery-3.7.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.7.1.min.map" />
+    <Content Include="Views\Auth\Register.cshtml" />
+    <Content Include="Views\Home\AdminPanel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -349,6 +354,10 @@
       <Project>{e2220d6a-8571-47b4-b316-0189f8573819}</Project>
       <Name>BussinesLogic</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Data Access Layer\Data Access Layer.csproj">
+      <Project>{6cf78b30-9604-49d0-ba81-c90674953e5f}</Project>
+      <Name>Data Access Layer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Domain\Domain.csproj">
       <Project>{be036d8c-6112-42e5-aad1-75891c5c1cef}</Project>
       <Name>Domain</Name>
@@ -357,6 +366,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202504071320033_InitialCreate.resx">
       <DependentUpon>202504071320033_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202504181444419_UpdateUserTable.resx">
+      <DependentUpon>202504181444419_UpdateUserTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

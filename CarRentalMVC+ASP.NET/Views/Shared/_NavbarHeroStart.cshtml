@@ -49,6 +49,13 @@
                     {
                         <li><a href="@Url.Action("Login", "Auth")">Login</a></li>
                     }
+                    @if (Session["UserRole"] as string == "Admin")
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("AdminPanel", "Home")">Admin Panel</a>
+                        </li>
+                    }
+
                 </ul>
             </div>
         </nav>

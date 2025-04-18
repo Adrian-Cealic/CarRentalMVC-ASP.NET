@@ -1,0 +1,33 @@
+﻿@{
+    Layout = null;
+    ViewBag.Title = "Admin Panel";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+
+    @Styles.Render("~/Content/bootstrap")
+</head>
+<body class="d-flex justify-content-center align-items-center vh-100 bg-light">
+
+    <div class="card shadow-lg p-4 rounded" style="width: 350px;">
+        <h2 class="text-center mb-4">Admin Panel</h2>
+
+        <p>Welcome, Admin! You can manage the system here.</p>
+
+        <!-- Example Admin Controls -->
+        <div>
+            <button class="btn btn-primary">Manage Users</button>
+            <button class="btn btn-warning">Manage Settings</button>
+        </div>
+
+        <a href="@Url.Action("Logout", "Auth")">Logout</a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
