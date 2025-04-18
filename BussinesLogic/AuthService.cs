@@ -3,25 +3,46 @@ using System.Collections.Generic;
 using System.Linq;
 using Domain;
 using Helpers; // For password hashing
+using Data_Access_Layer;
 
 namespace BusinessLogic
 {
     public class AuthService
     {
-        private static readonly List<User> _users = new List<User>
+        private readonly AppDbContext _context;
+
+        public AuthService(AppDbContext context)
         {
-            new User { Id = 1, Username = "admin", PasswordHash = PasswordHelper.HashPassword("admin123"), Role = "Admin" },
-            new User { Id = 2, Username = "user", PasswordHash = PasswordHelper.HashPassword("user123"), Role = "User" }
-        };
+            _context = context;
+        }
 
         public User Authenticate(string username, string password)
         {
-            var user = _users.FirstOrDefault(u => u.Username == username);
+            var user = _context.Users.FirstOrDefault(u => u.Username == username);
             if (user != null && PasswordHelper.VerifyPassword(password, user.PasswordHash))
             {
                 return user;
             }
-            return null; 
+            return null;
+        }
+
+        public bool Register(string username, string password, string role = "User")
+        {
+            if (_context.Users.Any(u => u.Username == username))
+                return false; // Username already exists
+
+            var user = new User
+            {
+                Username = username,
+                PasswordHash = PasswordHelper.HashPassword(password),
+                Role = role
+            };
+
+            _context.Users.Add(user);
+            _context.SaveChanges();
+
+            return true;
         }
     }
+
 }

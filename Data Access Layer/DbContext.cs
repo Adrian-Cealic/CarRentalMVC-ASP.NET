@@ -1,9 +1,14 @@
-﻿using Domain;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Domain;
 
-namespace CarRentalMVC_ASP.NET.Db
+namespace Data_Access_Layer
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext : DbContext   
     {
         public DbSet<User> Users { get; set; }
 
