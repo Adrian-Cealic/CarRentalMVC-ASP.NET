@@ -1,0 +1,477 @@
+@{
+    ViewBag.Title = "Customer Testimonials";
+}
+
+<!-- Header Banner -->
+<div class="container-fluid bg-primary py-5 mb-5">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 text-center">
+                <h1 class="display-4 text-white animated slideInDown mb-4">Customer Testimonials</h1>
+                <p class="fs-5 text-white mb-4">@ViewBag.Message</p>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center">
+                        <li class="breadcrumb-item"><a class="text-white" href="@Url.Action("Index", "Home")">Home</a></li>
+                        <li class="breadcrumb-item text-white active" aria-current="page">Testimonials</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Featured Testimonials -->
+<div class="container py-5">
+    <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
+        <h1 class="display-5 text-capitalize mb-3">Our <span class="text-primary">Happy Customers</span></h1>
+        <p class="mb-0">
+            Discover what our customers have to say about their experience with Cental. We pride ourselves on providing exceptional service and reliable vehicles for every journey.
+        </p>
+    </div>
+    
+    <div class="row g-4 mb-5">
+        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="testimonial-item h-100">
+                <div class="testimonial-quote">
+                    <i class="fa fa-quote-right fa-2x"></i>
+                </div>
+                <div class="testimonial-content bg-light rounded p-4 h-100">
+                    <div class="d-flex align-items-center mb-4">
+                        <img src="~/Content/img/testimonial-1.jpg" class="img-fluid rounded-circle" style="width: 70px; height: 70px;" alt="Testimonial">
+                        <div class="ms-3">
+                            <h5 class="mb-1">Sarah Johnson</h5>
+                            <p class="mb-0 text-muted">Business Traveler</p>
+                            <div class="d-flex text-warning">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="mb-0">"Cental has been my go-to car rental service for business trips for over 3 years. Their vehicles are always clean, well-maintained, and the staff is incredibly professional. The online booking process is quick and hassle-free."</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+            <div class="testimonial-item h-100">
+                <div class="testimonial-quote">
+                    <i class="fa fa-quote-right fa-2x"></i>
+                </div>
+                <div class="testimonial-content bg-light rounded p-4 h-100">
+                    <div class="d-flex align-items-center mb-4">
+                        <img src="~/Content/img/testimonial-2.jpg" class="img-fluid rounded-circle" style="width: 70px; height: 70px;" alt="Testimonial">
+                        <div class="ms-3">
+                            <h5 class="mb-1">Michael Rodriguez</h5>
+                            <p class="mb-0 text-muted">Family Vacation</p>
+                            <div class="d-flex text-warning">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="mb-0">"We rented an SUV for our family road trip, and it was perfect! Plenty of space for our luggage and kids. The car was in excellent condition, and the pickup/drop-off process was super easy. Will definitely use Cental again for our next family adventure."</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+            <div class="testimonial-item h-100">
+                <div class="testimonial-quote">
+                    <i class="fa fa-quote-right fa-2x"></i>
+                </div>
+                <div class="testimonial-content bg-light rounded p-4 h-100">
+                    <div class="d-flex align-items-center mb-4">
+                        <img src="~/Content/img/testimonial-3.jpg" class="img-fluid rounded-circle" style="width: 70px; height: 70px;" alt="Testimonial">
+                        <div class="ms-3">
+                            <h5 class="mb-1">Emily Chen</h5>
+                            <p class="mb-0 text-muted">Weekend Getaway</p>
+                            <div class="d-flex text-warning">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="mb-0">"I rented a luxury car for a special weekend with my partner, and it made the experience so memorable! The car was pristine, and the customer service was top-notch. When I had a question during my rental, their 24/7 support team was incredibly helpful."</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Testimonial Categories -->
+<div class="container-fluid bg-light py-5">
+    <div class="container py-5">
+        <div class="text-center mb-5">
+            <h2 class="display-5 mb-3">Reviews By <span class="text-primary">Category</span></h2>
+            <p class="fs-5">Filter testimonials based on customer type or rental experience</p>
+        </div>
+        
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-8">
+                <div class="d-flex flex-wrap justify-content-center gap-2">
+                    <button class="btn btn-primary px-4 py-2 mb-2 active" data-filter="all">All Reviews</button>
+                    <button class="btn btn-outline-primary px-4 py-2 mb-2" data-filter="business">Business Travel</button>
+                    <button class="btn btn-outline-primary px-4 py-2 mb-2" data-filter="vacation">Vacation</button>
+                    <button class="btn btn-outline-primary px-4 py-2 mb-2" data-filter="family">Family Trips</button>
+                    <button class="btn btn-outline-primary px-4 py-2 mb-2" data-filter="airport">Airport Transfer</button>
+                    <button class="btn btn-outline-primary px-4 py-2 mb-2" data-filter="luxury">Luxury Experience</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            <!-- Testimonial Grid Item 1 -->
+            <div class="col-lg-4 col-md-6 wow fadeInUp testimonial-grid-item" data-category="business" data-wow-delay="0.1s">
+                <div class="testimonial-item h-100">
+                    <div class="testimonial-content bg-white rounded p-4 h-100">
+                        <div class="d-flex justify-content-between mb-3">
+                            <div class="d-flex text-warning">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="text-primary"><i class="far fa-calendar-alt me-2"></i>Jan 15, 2023</span>
+                        </div>
+                        <p class="mb-4">"The booking process was streamlined and efficient. I was able to get on the road quickly, which is essential for my business trips. The car was clean and performed well."</p>
+                        <div class="d-flex align-items-center">
+                            <img src="~/Content/img/avatar-1.jpg" class="img-fluid rounded-circle" style="width: 50px; height: 50px;" alt="Testimonial">
+                            <div class="ms-3">
+                                <h6 class="mb-1">Robert Mills</h6>
+                                <p class="mb-0 small text-muted">Executive, Boston</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Testimonial Grid Item 2 -->
+            <div class="col-lg-4 col-md-6 wow fadeInUp testimonial-grid-item" data-category="vacation" data-wow-delay="0.3s">
+                <div class="testimonial-item h-100">
+                    <div class="testimonial-content bg-white rounded p-4 h-100">
+                        <div class="d-flex justify-content-between mb-3">
+                            <div class="d-flex text-warning">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span class="text-primary"><i class="far fa-calendar-alt me-2"></i>Feb 8, 2023</span>
+                        </div>
+                        <p class="mb-4">"We rented a convertible for our coastal drive and it was the highlight of our vacation! The pricing was transparent with no hidden fees, which I greatly appreciated."</p>
+                        <div class="d-flex align-items-center">
+                            <img src="~/Content/img/avatar-2.jpg" class="img-fluid rounded-circle" style="width: 50px; height: 50px;" alt="Testimonial">
+                            <div class="ms-3">
+                                <h6 class="mb-1">Jessica Taylor</h6>
+                                <p class="mb-0 small text-muted">Tourist, California</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Testimonial Grid Item 3 -->
+            <div class="col-lg-4 col-md-6 wow fadeInUp testimonial-grid-item" data-category="family" data-wow-delay="0.5s">
+                <div class="testimonial-item h-100">
+                    <div class="testimonial-content bg-white rounded p-4 h-100">
+                        <div class="d-flex justify-content-between mb-3">
+                            <div class="d-flex text-warning">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="text-primary"><i class="far fa-calendar-alt me-2"></i>Mar 22, 2023</span>
+                        </div>
+                        <p class="mb-4">"With two kids and lots of luggage, we needed a spacious vehicle. Cental provided us with a perfect minivan that had all the safety features we were looking for. The car seats were installed correctly and the staff was very child-friendly."</p>
+                        <div class="d-flex align-items-center">
+                            <img src="~/Content/img/avatar-3.jpg" class="img-fluid rounded-circle" style="width: 50px; height: 50px;" alt="Testimonial">
+                            <div class="ms-3">
+                                <h6 class="mb-1">David & Lisa Wilson</h6>
+                                <p class="mb-0 small text-muted">Family, Chicago</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Testimonial Grid Item 4 -->
+            <div class="col-lg-4 col-md-6 wow fadeInUp testimonial-grid-item" data-category="airport" data-wow-delay="0.1s">
+                <div class="testimonial-item h-100">
+                    <div class="testimonial-content bg-white rounded p-4 h-100">
+                        <div class="d-flex justify-content-between mb-3">
+                            <div class="d-flex text-warning">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="text-primary"><i class="far fa-calendar-alt me-2"></i>Apr 10, 2023</span>
+                        </div>
+                        <p class="mb-4">"After a long flight, it was such a relief to have the Cental representative waiting for me at arrivals. The car was ready to go, and I was on my way to my hotel in no time. Excellent airport service!"</p>
+                        <div class="d-flex align-items-center">
+                            <img src="~/Content/img/avatar-4.jpg" class="img-fluid rounded-circle" style="width: 50px; height: 50px;" alt="Testimonial">
+                            <div class="ms-3">
+                                <h6 class="mb-1">James Donovan</h6>
+                                <p class="mb-0 small text-muted">Business Traveler, New York</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Testimonial Grid Item 5 -->
+            <div class="col-lg-4 col-md-6 wow fadeInUp testimonial-grid-item" data-category="luxury" data-wow-delay="0.3s">
+                <div class="testimonial-item h-100">
+                    <div class="testimonial-content bg-white rounded p-4 h-100">
+                        <div class="d-flex justify-content-between mb-3">
+                            <div class="d-flex text-warning">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="text-primary"><i class="far fa-calendar-alt me-2"></i>May 5, 2023</span>
+                        </div>
+                        <p class="mb-4">"I rented a high-end sports car for my anniversary weekend, and it exceeded all expectations. The car was immaculate, performed beautifully, and definitely turned heads. Worth every penny for this special occasion!"</p>
+                        <div class="d-flex align-items-center">
+                            <img src="~/Content/img/avatar-5.jpg" class="img-fluid rounded-circle" style="width: 50px; height: 50px;" alt="Testimonial">
+                            <div class="ms-3">
+                                <h6 class="mb-1">Thomas Wright</h6>
+                                <p class="mb-0 small text-muted">Luxury Enthusiast, Miami</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Testimonial Grid Item 6 -->
+            <div class="col-lg-4 col-md-6 wow fadeInUp testimonial-grid-item" data-category="business" data-wow-delay="0.5s">
+                <div class="testimonial-item h-100">
+                    <div class="testimonial-content bg-white rounded p-4 h-100">
+                        <div class="d-flex justify-content-between mb-3">
+                            <div class="d-flex text-warning">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span class="text-primary"><i class="far fa-calendar-alt me-2"></i>Jun 18, 2023</span>
+                        </div>
+                        <p class="mb-4">"As a frequent business traveler, I appreciate the consistency of Cental's service. The loyalty program is a nice bonus, and the mobile app makes managing reservations incredibly convenient."</p>
+                        <div class="d-flex align-items-center">
+                            <img src="~/Content/img/avatar-6.jpg" class="img-fluid rounded-circle" style="width: 50px; height: 50px;" alt="Testimonial">
+                            <div class="ms-3">
+                                <h6 class="mb-1">Amanda Lewis</h6>
+                                <p class="mb-0 small text-muted">Sales Director, Dallas</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center mt-5">
+            <a href="#" class="btn btn-primary py-3 px-5">Load More Reviews</a>
+        </div>
+    </div>
+</div>
+
+<!-- Submit Testimonial Section -->
+<div class="container py-5">
+    <div class="row g-5">
+        <div class="col-lg-6 wow fadeInLeft" data-wow-delay="0.1s">
+            <h2 class="display-5 mb-4">Share Your <span class="text-primary">Experience</span></h2>
+            <p class="mb-4">We value your feedback! Tell us about your experience with Cental car rental services. Your testimonials help us improve and assist other customers in making informed decisions.</p>
+            <div class="d-flex align-items-center mb-4">
+                <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                    <i class="bi bi-check-circle text-white fs-4"></i>
+                </div>
+                <div class="ms-3">
+                    <h5 class="mb-1">Help Others Decide</h5>
+                    <p class="mb-0">Your honest review helps other customers choose the right rental option.</p>
+                </div>
+            </div>
+            <div class="d-flex align-items-center mb-4">
+                <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                    <i class="bi bi-star text-white fs-4"></i>
+                </div>
+                <div class="ms-3">
+                    <h5 class="mb-1">Earn Rewards</h5>
+                    <p class="mb-0">Submit a testimonial and earn points in our loyalty program.</p>
+                </div>
+            </div>
+            <div class="d-flex align-items-center">
+                <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                    <i class="bi bi-graph-up-arrow text-white fs-4"></i>
+                </div>
+                <div class="ms-3">
+                    <h5 class="mb-1">Help Us Improve</h5>
+                    <p class="mb-0">Your feedback is essential for us to continually enhance our services.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.3s">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body p-4">
+                    <h3 class="card-title mb-4">Submit Your Testimonial</h3>
+                    <form>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+                                    <label for="name">Your Name</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="email" class="form-control" id="email" placeholder="Your Email" required>
+                                    <label for="email">Your Email</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <select class="form-select" id="category">
+                                        <option value="">Select Rental Type</option>
+                                        <option value="business">Business Travel</option>
+                                        <option value="vacation">Vacation</option>
+                                        <option value="family">Family Trip</option>
+                                        <option value="airport">Airport Transfer</option>
+                                        <option value="luxury">Luxury Experience</option>
+                                    </select>
+                                    <label for="category">Rental Type</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label class="mb-2">Your Rating</label>
+                                    <div class="rating-stars">
+                                        <i class="far fa-star fs-4 rating-star" data-value="1"></i>
+                                        <i class="far fa-star fs-4 rating-star" data-value="2"></i>
+                                        <i class="far fa-star fs-4 rating-star" data-value="3"></i>
+                                        <i class="far fa-star fs-4 rating-star" data-value="4"></i>
+                                        <i class="far fa-star fs-4 rating-star" data-value="5"></i>
+                                    </div>
+                                    <input type="hidden" id="rating" value="0">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <textarea class="form-control" placeholder="Share your experience" id="testimonial" style="height: 150px" required></textarea>
+                                    <label for="testimonial">Your Testimonial</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="consent" required>
+                                    <label class="form-check-label" for="consent">
+                                        I consent to Cental using my testimonial on their website and marketing materials.
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-primary w-100 py-3" type="submit">
+                                    Submit Testimonial
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap Icons CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+<style>
+    .testimonial-item {
+        position: relative;
+        transition: all 0.3s;
+    }
+    
+    .testimonial-item:hover {
+        transform: translateY(-5px);
+    }
+    
+    .testimonial-quote {
+        position: absolute;
+        top: -15px;
+        right: 30px;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--bs-primary);
+        color: #fff;
+        border-radius: 50%;
+        z-index: 1;
+    }
+    
+    .rating-stars {
+        color: #ffc107;
+        cursor: pointer;
+    }
+    
+    .rating-stars .rating-star {
+        margin-right: 5px;
+        transition: all 0.2s;
+    }
+    
+    .rating-stars .rating-star:hover,
+    .rating-stars .rating-star.active {
+        transform: scale(1.2);
+    }
+</style>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            // Rating stars functionality
+            $('.rating-star').click(function() {
+                var value = $(this).data('value');
+                $('#rating').val(value);
+                
+                $('.rating-star').removeClass('fas').addClass('far');
+                $('.rating-star').removeClass('active');
+                
+                for (var i = 1; i <= value; i++) {
+                    $('.rating-star[data-value="' + i + '"]').removeClass('far').addClass('fas').addClass('active');
+                }
+            });
+            
+            // Category filter
+            $('.btn[data-filter]').click(function() {
+                $(this).addClass('active').removeClass('btn-outline-primary').addClass('btn-primary')
+                    .siblings().removeClass('active').removeClass('btn-primary').addClass('btn-outline-primary');
+                    
+                var category = $(this).data('filter');
+                
+                if (category === 'all') {
+                    $('.testimonial-grid-item').fadeIn();
+                } else {
+                    $('.testimonial-grid-item').hide();
+                    $('.testimonial-grid-item[data-category="' + category + '"]').fadeIn();
+                }
+            });
+        });
+    </script>
+} 

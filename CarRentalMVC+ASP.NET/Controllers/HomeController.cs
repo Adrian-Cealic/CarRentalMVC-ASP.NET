@@ -408,5 +408,13 @@ namespace CarRentalMVC_ASP.NET.Controllers
             return View();
         }
 
+        // Action for testimonials page
+        public ActionResult Testimonials()
+        {
+            ViewBag.Message = "Read what our customers have to say about their experience with Cental car rental services.";
+
+            return View();
+        }
+
     }
 }
