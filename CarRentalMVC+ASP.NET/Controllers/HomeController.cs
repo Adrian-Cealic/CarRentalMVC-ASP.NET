@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Data_Access_Layer;
 
 namespace CarRentalMVC_ASP.NET.Controllers
 {
@@ -48,8 +49,12 @@ namespace CarRentalMVC_ASP.NET.Controllers
                 return RedirectToAction("Index", "Home"); // Redirect non-admin users to homepage
             }
 
-            // If the user is an admin, show the Admin Panel
-            return View();
+            // Create context and get all users
+            var context = new AppDbContext();
+            var users = context.Users.ToList(); // Assuming you have a Users DbSet in your context
+
+            // Pass the users to the view
+            return View(users);
         }
 
     }
