@@ -1,19 +1,136 @@
 ﻿@{
-    ViewBag.Title = "Contact";
+    ViewBag.Title = "Contact Us";
 }
-<main aria-labelledby="title">
-    <h2 id="title">@ViewBag.Title.</h2>
-    <h3>@ViewBag.Message</h3>
 
-    <address>
-        One Microsoft Way<br />
-        Redmond, WA 98052-6399<br />
-        <abbr title="Phone">P:</abbr>
-        425.555.0100
-    </address>
+<!-- Header Banner -->
+<div class="container-fluid bg-primary py-5 mb-5">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 text-center">
+                <h1 class="display-4 text-white animated slideInDown mb-4">Contact Us</h1>
+                <p class="fs-5 text-white mb-4">We're here to help! Reach out to our team with any questions or concerns.</p>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center">
+                        <li class="breadcrumb-item"><a class="text-white" href="@Url.Action("Index", "Home")">Home</a></li>
+                        <li class="breadcrumb-item text-white active" aria-current="page">Contact</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
 
-    <address>
-        <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-        <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-    </address>
-</main>
+<!-- Contact Section -->
+<div class="container py-5">
+    <div class="row g-5">
+        <!-- Contact Information -->
+        <div class="col-lg-6">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body p-5">
+                    <h2 class="mb-4">Get In Touch</h2>
+                    <p class="text-muted mb-4">@ViewBag.Message</p>
+                    
+                    <div class="d-flex align-items-center mb-4">
+                        <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                            <i class="bi bi-geo-alt text-white fs-4"></i>
+                        </div>
+                        <div class="ms-3">
+                            <h5 class="mb-1">Our Office</h5>
+                            <p class="mb-0">One Microsoft Way<br />Redmond, WA 98052-6399</p>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex align-items-center mb-4">
+                        <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                            <i class="bi bi-telephone text-white fs-4"></i>
+                        </div>
+                        <div class="ms-3">
+                            <h5 class="mb-1">Phone Number</h5>
+                            <p class="mb-0">425.555.0100</p>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex align-items-center">
+                        <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                            <i class="bi bi-envelope text-white fs-4"></i>
+                        </div>
+                        <div class="ms-3">
+                            <h5 class="mb-1">Email Address</h5>
+                            <p class="mb-0">
+                                <strong>Support:</strong> <a href="mailto:Support@example.com">Support@example.com</a><br />
+                                <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Contact Form -->
+        <div class="col-lg-6">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body p-5">
+                    <h2 class="mb-4">Send Us A Message</h2>
+                    <form>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="name" placeholder="Your Name">
+                                    <label for="name">Your Name</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="email" class="form-control" id="email" placeholder="Your Email">
+                                    <label for="email">Your Email</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="subject" placeholder="Subject">
+                                    <label for="subject">Subject</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 150px"></textarea>
+                                    <label for="message">Message</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-primary w-100 py-3" type="submit">
+                                    <i class="bi bi-send me-2"></i>Send Message
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Map Section -->
+<div class="container-fluid py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body p-0">
+                        <iframe class="w-100" 
+                                style="height: 450px;" 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2689.2891632041297!2d-122.12924492345654!3d47.64054239107503!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54906d7c6c0a0001%3A0x4964dbc8c0c275dd!2sMicrosoft%20Building%2092!5e0!3m2!1sen!2sus!4v1682432939830!5m2!1sen!2sus" 
+                                frameborder="0" 
+                                allowfullscreen="" 
+                                aria-hidden="false" 
+                                tabindex="0">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add Bootstrap Icons CSS if not already included in layout -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
