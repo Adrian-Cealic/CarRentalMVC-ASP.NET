@@ -12,8 +12,8 @@ namespace CarRentalMVC_ASP.NET.Controllers
         // Action for main page
         public ActionResult Index()
         {
-            if (Session["UserId"] == null)
-                return RedirectToAction("Login", "Auth");
+            // if (Session["UserId"] == null)
+            //     return RedirectToAction("Login", "Auth");
 
             return View();
         }
