@@ -16,7 +16,7 @@ namespace CarRentalMVC_ASP.NET.Controllers
         public ActionResult Index()
         {
             var users = db.Users.ToList();
-            return View(users);
+            return View("~/Views/Home/AdminPanel.cshtml", users);
         }
 
         // Exemplu pentru editare user
@@ -25,7 +25,8 @@ namespace CarRentalMVC_ASP.NET.Controllers
             var user = db.Users.Find(id);
             if (user == null)
                 return HttpNotFound();
-            return View(user);
+            var users = db.Users.ToList();
+            return View("~/Views/Home/AdminPanel.cshtml", users);
         }
 
         [HttpPost]
@@ -34,13 +35,14 @@ namespace CarRentalMVC_ASP.NET.Controllers
         {
             try
             {
-                System.Diagnostics.Debug.WriteLine("Delete action called with id: " + id);
+               
                 var user = db.Users.Find(id);
                 if (user != null)
                 {
                     db.Users.Remove(user);
                     db.SaveChanges();
                 }
+                var users = db.Users.ToList();
                 return RedirectToAction("Index");
             }
             catch (Exception ex)

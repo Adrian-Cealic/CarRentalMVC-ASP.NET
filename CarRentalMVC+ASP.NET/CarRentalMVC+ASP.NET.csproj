@@ -339,7 +339,6 @@
     <Content Include="Scripts\jquery-3.7.1.min.map" />
     <Content Include="Views\Auth\Register.cshtml" />
     <Content Include="Views\Home\AdminPanel.cshtml" />
-    <Content Include="Views\AdminPanel\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
