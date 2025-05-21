@@ -26,6 +26,19 @@ namespace CarRentalMVC_ASP.NET.Controllers
             return View(user);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Delete(int id)
+        {
+            var user = db.Users.Find(id);
+            if (user != null)
+            {
+                db.Users.Remove(user);
+                db.SaveChanges();
+            }
+            return RedirectToAction("Index");
+        }
+
         // Adaugă și alte acțiuni pentru administrare după nevoie
     }
 }
