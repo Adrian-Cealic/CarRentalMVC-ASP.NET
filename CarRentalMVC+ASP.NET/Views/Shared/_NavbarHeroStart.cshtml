@@ -47,7 +47,7 @@
                     }
                     else
                     {
-                        <li><a href="@Url.Action("Login", "Auth")">Login</a></li>
+                        <li><a href="@Url.Action("Login", "Auth")" class="btn btn-primary rounded-pill py-2 px-4">Login</a></li>
                     }
                     @if (Session["UserRole"] as string == "Admin")
                     {
