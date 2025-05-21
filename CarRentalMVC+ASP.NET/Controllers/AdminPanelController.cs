@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+//using CarRentalMVC_ASP.NET.Models; // Asigură-te că ai referința corectă la modelul User
+using Data_Access_Layer; // Asigură-te că ai referința corectă la contextul bazei de date
 
 namespace CarRentalMVC_ASP.NET.Controllers
 {
     public class AdminPanelController : Controller
     {
-        private readonly YourDbContext db = new YourDbContext(); // înlocuiește cu contextul tău
+        private readonly AppDbContext db = new AppDbContext(); // înlocuiește cu contextul tău
 
         // GET: AdminPanel
         public ActionResult Index()
@@ -30,13 +32,24 @@ namespace CarRentalMVC_ASP.NET.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id)
         {
-            var user = db.Users.Find(id);
-            if (user != null)
+            try
             {
-                db.Users.Remove(user);
-                db.SaveChanges();
+                System.Diagnostics.Debug.WriteLine("Delete action called with id: " + id);
+                var user = db.Users.Find(id);
+                if (user != null)
+                {
+                    db.Users.Remove(user);
+                    db.SaveChanges();
+                }
+                return RedirectToAction("Index");
             }
-            return RedirectToAction("Index");
+            catch (Exception ex)
+            {
+                // Loghează excepția pentru depanare
+                System.Diagnostics.Debug.WriteLine("Delete error: " + ex.Message);
+                // Poți returna o pagină de eroare personalizată sau ViewBag cu mesajul
+                return View("Error", (object)ex.Message);
+            }
         }
 
         // Adaugă și alte acțiuni pentru administrare după nevoie
