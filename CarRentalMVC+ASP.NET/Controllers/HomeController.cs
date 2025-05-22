@@ -4,11 +4,20 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Data_Access_Layer;
+using BusinessLogic;
 
 namespace CarRentalMVC_ASP.NET.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly UserService _userService;
+
+        public HomeController()
+        {
+`            var context = new AppDbContext();
+            _userService = new UserService(context);
+        }
+
         // Action for main page
         public ActionResult Index()
         {
@@ -49,9 +58,8 @@ namespace CarRentalMVC_ASP.NET.Controllers
                 return RedirectToAction("Index", "Home"); // Redirect non-admin users to homepage
             }
 
-            // Create context and get all users
-            var context = new AppDbContext();
-            var users = context.Users.ToList(); // Assuming you have a Users DbSet in your context
+            // Use UserService to get all users
+            var users = _userService.GetAllUsers(); 
 
             // Pass the users to the view
             return View(users);
