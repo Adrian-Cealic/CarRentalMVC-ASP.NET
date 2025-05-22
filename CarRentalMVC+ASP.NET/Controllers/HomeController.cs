@@ -13,12 +13,14 @@ namespace CarRentalMVC_ASP.NET.Controllers
     {
         private readonly UserService _userService;
         private readonly CarService _carService;
+        private readonly RentalService _rentalService;
 
         public HomeController()
         {
             var context = new AppDbContext();
             _userService = new UserService(context);
             _carService = new CarService(context);
+            _rentalService = new RentalService(context);
         }
 
         // Action for main page
@@ -257,7 +259,129 @@ namespace CarRentalMVC_ASP.NET.Controllers
                 return RedirectToAction("Cars");
             }
             
-            return View(car);
+            // Create a new rental with default dates
+            var rental = new Rental
+            {
+                CarId = car.Id,
+                UserId = (int)Session["UserId"],
+                StartDate = DateTime.Today,
+                EndDate = DateTime.Today.AddDays(1)
+            };
+            
+            ViewBag.Car = car;
+            return View(rental);
+        }
+
+        // POST: Home/Rent
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Rent(Rental rental)
+        {
+            if (Session["UserId"] == null)
+            {
+                return RedirectToAction("Login", "Auth");
+            }
+
+            if (ModelState.IsValid)
+            {
+                // Ensure the user ID is set from the session
+                rental.UserId = (int)Session["UserId"];
+                
+                // Validate dates
+                if (rental.StartDate < DateTime.Today)
+                {
+                    ModelState.AddModelError("StartDate", "Start date cannot be in the past.");
+                    ViewBag.Car = _carService.GetCarById(rental.CarId);
+                    return View(rental);
+                }
+                
+                if (rental.EndDate < rental.StartDate)
+                {
+                    ModelState.AddModelError("EndDate", "End date must be after start date.");
+                    ViewBag.Car = _carService.GetCarById(rental.CarId);
+                    return View(rental);
+                }
+                
+                if (_rentalService.CreateRental(rental))
+                {
+                    TempData["Message"] = "Your rental has been successfully booked!";
+                    return RedirectToAction("MyRentals");
+                }
+                
+                ModelState.AddModelError("", "Unable to create rental. The car may no longer be available.");
+            }
+            
+            ViewBag.Car = _carService.GetCarById(rental.CarId);
+            return View(rental);
+        }
+
+        // GET: Home/MyRentals
+        public ActionResult MyRentals()
+        {
+            if (Session["UserId"] == null)
+            {
+                return RedirectToAction("Login", "Auth");
+            }
+            
+            int userId = (int)Session["UserId"];
+            var rentals = _rentalService.GetUserRentals(userId);
+            return View(rentals);
+        }
+
+        // GET: Home/ManageRentals (Admin only)
+        public ActionResult ManageRentals()
+        {
+            if (Session["UserRole"] as string != "Admin")
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            
+            var rentals = _rentalService.GetAllRentals();
+            return View(rentals);
+        }
+
+        // POST: Home/UpdateRentalStatus
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult UpdateRentalStatus(int id, RentalStatus status)
+        {
+            if (Session["UserRole"] as string != "Admin")
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            
+            if (_rentalService.UpdateRentalStatus(id, status))
+            {
+                TempData["Message"] = "Rental status updated successfully.";
+            }
+            else
+            {
+                TempData["ErrorMessage"] = "Failed to update rental status.";
+            }
+            
+            return RedirectToAction("ManageRentals");
+        }
+
+        // POST: Home/CancelRental
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CancelRental(int id)
+        {
+            if (Session["UserId"] == null)
+            {
+                return RedirectToAction("Login", "Auth");
+            }
+            
+            if (_rentalService.CancelRental(id))
+            {
+                TempData["Message"] = "Your rental has been cancelled.";
+            }
+            else
+            {
+                TempData["ErrorMessage"] = "Failed to cancel rental.";
+            }
+            
+            return RedirectToAction("MyRentals");
         }
 
         // Add this action to your HomeController
