@@ -1,0 +1,119 @@
+@model IEnumerable<Domain.Rental>
+@{
+    ViewBag.Title = "Manage Rentals";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container py-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>Manage Rentals</h2>
+        <a href="@Url.Action("AdminPanel", "Home")" class="btn btn-outline-secondary">
+            <i class="bi bi-arrow-left-circle"></i> Back to Admin Panel
+        </a>
+    </div>
+
+    @if (TempData["Message"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["Message"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            @TempData["ErrorMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    <div class="card shadow-sm">
+        <div class="card-header bg-info text-white">
+            <h5 class="mb-0"><i class="bi bi-calendar-check me-2"></i>Rental List</h5>
+        </div>
+        <div class="card-body">
+            @if (!Model.Any())
+            {
+                <p class="text-center">No rentals found.</p>
+            }
+            else
+            {
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead class="table-light">
+                            <tr>
+                                <th>ID</th>
+                                <th>User</th>
+                                <th>Car</th>
+                                <th>Start Date</th>
+                                <th>End Date</th>
+                                <th>Total Price</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var rental in Model)
+                            {
+                                <tr>
+                                    <td>@rental.Id</td>
+                                    <td>@rental.User.Username</td>
+                                    <td>@rental.Car.Make @rental.Car.Model</td>
+                                    <td>@rental.StartDate.ToString("yyyy-MM-dd")</td>
+                                    <td>@rental.EndDate.ToString("yyyy-MM-dd")</td>
+                                    <td>$@rental.TotalPrice.ToString("0.00")</td>
+                                    <td>
+                                        <span class="badge bg-@GetStatusBadgeColor(rental.Status)">
+                                            @rental.Status
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <div class="dropdown">
+                                            <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton@(rental.Id)" data-bs-toggle="dropdown" aria-expanded="false">
+                                                Update Status
+                                            </button>
+                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton@(rental.Id)">
+                                                @foreach (Domain.RentalStatus status in Enum.GetValues(typeof(Domain.RentalStatus)))
+                                                {
+                                                    if (status != rental.Status)
+                                                    {
+                                                        <li>
+                                                            @using (Html.BeginForm("UpdateRentalStatus", "Home", new { id = rental.Id, status = status }, FormMethod.Post))
+                                                            {
+                                                                @Html.AntiForgeryToken()
+                                                                <button type="submit" class="dropdown-item">@status</button>
+                                                            }
+                                                        </li>
+                                                    }
+                                                }
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@functions {
+    public string GetStatusBadgeColor(Domain.RentalStatus status)
+    {
+        switch (status)
+        {
+            case Domain.RentalStatus.Pending:
+                return "warning";
+            case Domain.RentalStatus.Active:
+                return "primary";
+            case Domain.RentalStatus.Completed:
+                return "success";
+            case Domain.RentalStatus.Cancelled:
+                return "danger";
+            default:
+                return "secondary";
+        }
+    }
+}

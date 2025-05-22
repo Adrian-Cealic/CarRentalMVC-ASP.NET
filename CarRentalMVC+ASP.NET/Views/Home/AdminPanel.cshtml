@@ -31,8 +31,8 @@
                 <a href="@Url.Action("ManageCars", "Home")" class="list-group-item list-group-item-action @(ViewContext.RouteData.Values["action"].ToString() == "ManageCars" || ViewContext.RouteData.Values["action"].ToString() == "AddCar" || ViewContext.RouteData.Values["action"].ToString() == "EditCar" ? "active" : "")">
                     <i class="bi bi-car-front-fill me-2"></i> Cars
                 </a>
-                <a href="#" class="list-group-item list-group-item-action">
-                    <i class="bi bi-calendar-check me-2"></i> Bookings
+                <a href="@Url.Action("ManageRentals", "Home")" class="list-group-item list-group-item-action @(ViewContext.RouteData.Values["action"].ToString() == "ManageRentals" ? "active" : "")">
+                    <i class="bi bi-calendar-check me-2"></i> Rentals
                 </a>
                 <a href="#" class="list-group-item list-group-item-action">
                     <i class="bi bi-gear me-2"></i> Settings

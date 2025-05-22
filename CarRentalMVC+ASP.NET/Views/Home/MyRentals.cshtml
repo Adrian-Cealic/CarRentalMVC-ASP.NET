@@ -1,0 +1,106 @@
+@model IEnumerable<Domain.Rental>
+@{
+    ViewBag.Title = "My Rentals";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container py-5">
+    <h2 class="mb-4">My Rentals</h2>
+
+    @if (TempData["Message"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["Message"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            @TempData["ErrorMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info">
+            <p>You don't have any rentals yet. <a href="@Url.Action("Cars", "Home")">Browse our cars</a> to make a reservation.</p>
+        </div>
+    }
+    else
+    {
+        <div class="row">
+            @foreach (var rental in Model)
+            {
+                <div class="col-md-6 mb-4">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0">@rental.Car.Make @rental.Car.Model</h5>
+                            <span class="badge bg-@(GetStatusBadgeColor(rental.Status))">@rental.Status</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    @if (!string.IsNullOrEmpty(rental.Car.ImageUrl))
+                                    {
+                                        <img src="@rental.Car.ImageUrl" alt="@rental.Car.Make @rental.Car.Model" class="img-fluid rounded">
+                                    }
+                                    else
+                                    {
+                                        <img src="~/Content/img/car-default.jpg" alt="@rental.Car.Make @rental.Car.Model" class="img-fluid rounded">
+                                    }
+                                </div>
+                                <div class="col-md-8">
+                                    <ul class="list-unstyled">
+                                        <li><strong>Dates:</strong> @rental.StartDate.ToString("MMM dd, yyyy") - @rental.EndDate.ToString("MMM dd, yyyy")</li>
+                                        <li><strong>Duration:</strong> @((rental.EndDate - rental.StartDate).Days + 1) days</li>
+                                        <li><strong>Total Price:</strong> $@rental.TotalPrice.ToString("0.00")</li>
+                                    </ul>
+                                    @if (!string.IsNullOrEmpty(rental.Notes))
+                                    {
+                                        <div class="mt-2">
+                                            <strong>Notes:</strong>
+                                            <p class="small">@rental.Notes</p>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        @if (rental.Status == Domain.RentalStatus.Pending || rental.Status == Domain.RentalStatus.Active)
+                        {
+                            <div class="card-footer">
+                                @using (Html.BeginForm("CancelRental", "Home", new { id = rental.Id }, FormMethod.Post, new { @style = "display:inline;", onsubmit = "return confirm('Are you sure you want to cancel this rental?');" }))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <button type="submit" class="btn btn-sm btn-outline-danger">
+                                        <i class="bi bi-x-circle"></i> Cancel Rental
+                                    </button>
+                                }
+                            </div>
+                        }
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>
+
+@functions {
+    public string GetStatusBadgeColor(Domain.RentalStatus status)
+    {
+        switch (status)
+        {
+            case Domain.RentalStatus.Pending:
+                return "warning";
+            case Domain.RentalStatus.Active:
+                return "primary";
+            case Domain.RentalStatus.Completed:
+                return "success";
+            case Domain.RentalStatus.Cancelled:
+                return "danger";
+            default:
+                return "secondary";
+        }
+    }
+}

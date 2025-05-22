@@ -12,6 +12,7 @@ namespace Data_Access_Layer
     {
         public DbSet<User> Users { get; set; }
         public DbSet<Car> Cars { get; set; }
+        public DbSet<Rental> Rentals { get; set; }
 
         public AppDbContext() : base("name=DefaultConnection") { }
 
@@ -30,6 +31,22 @@ namespace Data_Access_Layer
             modelBuilder.Entity<Car>()
                 .Property(c => c.PricePerDay)
                 .HasPrecision(18, 2);
+
+            modelBuilder.Entity<Rental>()
+                .Property(r => r.TotalPrice)
+                .HasPrecision(18, 2);
+
+            modelBuilder.Entity<Rental>()
+                .HasRequired(r => r.User)
+                .WithMany()
+                .HasForeignKey(r => r.UserId)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Rental>()
+                .HasRequired(r => r.Car)
+                .WithMany()
+                .HasForeignKey(r => r.CarId)
+                .WillCascadeOnDelete(false);
         }
     }
 }

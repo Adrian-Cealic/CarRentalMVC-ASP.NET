@@ -208,6 +208,10 @@
     <Compile Include="Migrations\202505221656453_AddTransmissionToCar.Designer.cs">
       <DependentUpon>202505221656453_AddTransmissionToCar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202505221902355_AddRentalsTabel.cs" />
+    <Compile Include="Migrations\202505221902355_AddRentalsTabel.Designer.cs">
+      <DependentUpon>202505221902355_AddRentalsTabel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -352,6 +356,9 @@
     <Content Include="Views\Home\EditCar.cshtml" />
     <Content Include="Views\Home\EditUserRole.cshtml" />
     <Content Include="Views\Home\ManageCars.cshtml" />
+    <Content Include="Views\Home\Cars.cshtml" />
+    <Content Include="Views\Home\ManageRentals.cshtml" />
+    <Content Include="Views\Home\MyRentals.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -387,6 +394,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202505221656453_AddTransmissionToCar.resx">
       <DependentUpon>202505221656453_AddTransmissionToCar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202505221902355_AddRentalsTabel.resx">
+      <DependentUpon>202505221902355_AddRentalsTabel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
