@@ -204,6 +204,10 @@
     <Compile Include="Migrations\202505221635233_AddCarTableToExistingDbContext.Designer.cs">
       <DependentUpon>202505221635233_AddCarTableToExistingDbContext.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202505221656453_AddTransmissionToCar.cs" />
+    <Compile Include="Migrations\202505221656453_AddTransmissionToCar.Designer.cs">
+      <DependentUpon>202505221656453_AddTransmissionToCar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -380,6 +384,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202505221635233_AddCarTableToExistingDbContext.resx">
       <DependentUpon>202505221635233_AddCarTableToExistingDbContext.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202505221656453_AddTransmissionToCar.resx">
+      <DependentUpon>202505221656453_AddTransmissionToCar.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
