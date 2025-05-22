@@ -226,9 +226,38 @@ namespace CarRentalMVC_ASP.NET.Controllers
             return RedirectToAction("ManageCars");
         }
 
-        public ActionResult Rent()
+        // Update the Rent action to check for user login
+        public ActionResult Rent(int id)
         {
-            return View();
+            // Check if user is logged in
+            if (Session["UserId"] == null)
+            {
+                // Store the car ID in TempData so we can redirect back after login
+                TempData["RentCarId"] = id;
+                TempData["ReturnUrl"] = Url.Action("Rent", "Home", new { id = id });
+                
+                // Set a message to inform the user why they were redirected
+                ViewBag.Message = "Please login to rent a car.";
+                
+                // Redirect to login page
+                return RedirectToAction("Login", "Auth");
+            }
+            
+            // User is logged in, proceed with rental
+            var car = _carService.GetCarById(id);
+            if (car == null)
+            {
+                return HttpNotFound();
+            }
+            
+            // Check if car is available
+            if (!car.IsAvailable)
+            {
+                TempData["ErrorMessage"] = "Sorry, this car is not available for rent.";
+                return RedirectToAction("Cars");
+            }
+            
+            return View(car);
         }
 
         // Add this action to your HomeController

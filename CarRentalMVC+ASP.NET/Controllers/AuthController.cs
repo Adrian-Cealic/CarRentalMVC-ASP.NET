@@ -28,10 +28,17 @@ namespace MyMvcProject.Controllers
                 Session["UserId"] = user.Id;
                 Session["Username"] = user.Username;
                 Session["UserRole"] = user.Role;
+                
+                if (TempData["ReturnUrl"] != null)
+                {
+                    string returnUrl = TempData["ReturnUrl"].ToString();
+                    return Redirect(returnUrl);
+                }
+                
                 return RedirectToAction("Index", "Home");
             }
-
-            ViewBag.Message = "Invalid credentials!";
+            
+            ViewBag.Message = "Invalid username or password";
             return View();
         }
 
