@@ -200,6 +200,14 @@
     <Compile Include="Migrations\202504181444419_UpdateUserTable.Designer.cs">
       <DependentUpon>202504181444419_UpdateUserTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202505221635233_AddCarTableToExistingDbContext.cs" />
+    <Compile Include="Migrations\202505221635233_AddCarTableToExistingDbContext.Designer.cs">
+      <DependentUpon>202505221635233_AddCarTableToExistingDbContext.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202505221656453_AddTransmissionToCar.cs" />
+    <Compile Include="Migrations\202505221656453_AddTransmissionToCar.Designer.cs">
+      <DependentUpon>202505221656453_AddTransmissionToCar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -340,6 +348,10 @@
     <Content Include="Views\Auth\Register.cshtml" />
     <Content Include="Views\Home\AdminPanel.cshtml" />
     <Content Include="Views\Home\Rent.cshtml" />
+    <Content Include="Views\Home\AddCar.cshtml" />
+    <Content Include="Views\Home\EditCar.cshtml" />
+    <Content Include="Views\Home\EditUserRole.cshtml" />
+    <Content Include="Views\Home\ManageCars.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -369,6 +381,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202504181444419_UpdateUserTable.resx">
       <DependentUpon>202504181444419_UpdateUserTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202505221635233_AddCarTableToExistingDbContext.resx">
+      <DependentUpon>202505221635233_AddCarTableToExistingDbContext.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202505221656453_AddTransmissionToCar.resx">
+      <DependentUpon>202505221656453_AddTransmissionToCar.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

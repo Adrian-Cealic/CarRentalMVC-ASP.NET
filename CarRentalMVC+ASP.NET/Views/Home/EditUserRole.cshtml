@@ -1,0 +1,81 @@
+@model Domain.User
+@{
+    ViewBag.Title = "Edit User Role";
+    Layout = "~/Views/Shared/_Layout.cshtml"; // Ensure this path is correct
+
+    // Example list of roles. Consider making this dynamic (e.g., from a config or service)
+    var roles = new List<SelectListItem>
+    {
+        new SelectListItem { Text = "User", Value = "User" },
+        new SelectListItem { Text = "Admin", Value = "Admin" }
+        // Add other roles as needed
+    };
+}
+
+<div class="container mt-5">
+    <h2>Edit Role for User: <span class="fw-bold">@Model.Username</span></h2>
+    <hr />
+
+    @using (Html.BeginForm("EditUserRole", "Home", new { id = Model.Id }, FormMethod.Post, new { @class = "needs-validation", novalidate = "" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="card shadow-sm">
+            <div class="card-header">
+                <h4>User Details</h4>
+            </div>
+            <div class="card-body">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.Id)
+
+                <div class="row mb-3">
+                    <div class="col-md-2">
+                        @Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "form-label" })
+                    </div>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-2">
+                        @Html.LabelFor(model => model.Role, htmlAttributes: new { @class = "form-label" })
+                    </div>
+                    <div class="col-md-10">
+                        @Html.DropDownList("role", roles, "Select Role", new { @class = "form-select", required = "required" })
+                        @Html.ValidationMessageFor(model => model.Role, "", new { @class = "text-danger" })
+                        <div class="invalid-feedback">
+                            Please select a role.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer text-end">
+                @Html.ActionLink("Cancel", "AdminPanel", null, new { @class = "btn btn-secondary me-2" })
+                <input type="submit" value="Save Changes" class="btn btn-primary" />
+            </div>
+        </div>
+    }
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function () {
+            'use strict';
+            window.addEventListener('load', function () {
+                var forms = document.getElementsByClassName('needs-validation');
+                var validation = Array.prototype.filter.call(forms, function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
+    </script>
+} 

@@ -1,0 +1,100 @@
+@model IEnumerable<Domain.Car>
+
+@{
+    ViewBag.Title = "Our Cars";
+}
+
+<div class="container-fluid py-5">
+    <div class="container pt-5 pb-3">
+        <h1 class="display-4 text-uppercase text-center mb-5">Our Fleet</h1>
+        
+        @if (!Model.Any())
+        {
+            <div class="text-center">
+                <p class="lead">No cars available at the moment. Please check back later.</p>
+            </div>
+        }
+        else
+        {
+            <div class="row">
+                @foreach (var car in Model)
+                {
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="car-item bg-light mb-4 shadow-sm">
+                            <div class="car-img position-relative overflow-hidden">
+                                @if (!string.IsNullOrEmpty(car.ImageUrl))
+                                {
+                                    <img class="img-fluid w-100" src="@car.ImageUrl" alt="@car.Make @car.Model">
+                                }
+                                else
+                                {
+                                    <img class="img-fluid w-100" src="~/Content/img/car-default.jpg" alt="@car.Make @car.Model">
+                                }
+                                <div class="car-overlay">
+                                    <div class="d-flex h-100 align-items-center justify-content-center">
+                                        <a class="btn btn-lg btn-primary px-3" href="@Url.Action("Rent", "Home", new { id = car.Id })">
+                                            <i class="bi bi-cart-plus-fill mr-1"></i> Rent Now
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="car-body p-4">
+                                <h5 class="text-uppercase mb-3">@car.Make @car.Model</h5>
+                                <div class="d-flex justify-content-between mb-3">
+                                    <small class="text-body"><i class="bi bi-calendar-event text-primary mr-2"></i>@car.Year</small>
+`                                    <small class="text-body"><i class="bi bi-speedometer text-primary mr-2"></i>@car.Transmission</small>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <h6 class="text-primary mb-0">$@car.PricePerDay.ToString("0.00")/day</h6>
+                                    <a href="@Url.Action("Rent", "Home", new { id = car.Id })" class="btn btn-sm btn-outline-primary">Details</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+</div>
+
+@section Styles {
+    <style>
+        .car-item {
+            transition: all 0.3s;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .car-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .car-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .car-img img {
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .car-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.3s;
+        }
+        
+        .car-item:hover .car-overlay {
+            opacity: 1;
+        }
+    </style>
+} 
