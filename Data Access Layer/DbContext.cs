@@ -11,6 +11,7 @@ namespace Data_Access_Layer
     public class AppDbContext : DbContext   
     {
         public DbSet<User> Users { get; set; }
+        public DbSet<Car> Cars { get; set; }
 
         public AppDbContext() : base("name=DefaultConnection") { }
 
@@ -25,6 +26,10 @@ namespace Data_Access_Layer
             modelBuilder.Entity<User>()
                 .HasIndex(u => u.Username)
                 .IsUnique();
+
+            modelBuilder.Entity<Car>()
+                .Property(c => c.PricePerDay)
+                .HasPrecision(18, 2);
         }
     }
 }

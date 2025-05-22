@@ -14,12 +14,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
     <!-- Bootstrap Stylesheet -->
     @Styles.Render("~/Content/bootstrap")
-    @Styles.Render("~/Content/css")
     @Styles.Render("~/bundles/animate")
     @Styles.Render("~/bundles/owlcarouselcss")
     @Styles.Render("~/bundles/lightbox/css")
 
-
+    @RenderSection("Styles", required: false)
 </head>
 <body>
     @Html.Partial("_Spinner")

@@ -55,13 +55,9 @@ namespace CarRentalMVC_ASP.NET
                         "~/Scripts/main.js"
             ));
 
-            //style bundles
-            bundles.Add(new StyleBundle("~/Content/css").Include(
-                "~/Content/Styles/styles.css", new CssRewriteUrlTransform()
-            ));
-
             bundles.Add(new StyleBundle("~/Content/bootstrap").Include(
-                "~/Content/Styles/bootstrap.min.css"
+                "~/Content/Styles/bootstrap.min.css",
+                "~/Content/Styles/styles.css"
             ));
 
             bundles.Add(new Bundle("~/bundles/animate").Include(
