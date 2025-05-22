@@ -50,6 +50,7 @@
                                 <th>@Html.DisplayNameFor(model => model.Make)</th>
                                 <th>@Html.DisplayNameFor(model => model.Model)</th>
                                 <th>@Html.DisplayNameFor(model => model.Year)</th>
+                                <th>Transmission</th>
                                 <th>@Html.DisplayNameFor(model => model.PricePerDay)</th>
                                 <th>@Html.DisplayNameFor(model => model.IsAvailable)</th>
                                 <th>Actions</th>
@@ -62,6 +63,7 @@
                                     <td>@Html.DisplayFor(modelItem => item.Make)</td>
                                     <td>@Html.DisplayFor(modelItem => item.Model)</td>
                                     <td>@Html.DisplayFor(modelItem => item.Year)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Transmission)</td>
                                     <td>@Html.DisplayFor(modelItem => item.PricePerDay)</td>
                                     <td>
                                         <span class="badge @(item.IsAvailable ? "bg-success" : "bg-secondary")">
