@@ -76,9 +76,9 @@
                                             </td>
                                             <td>
                                                 <div class="btn-group btn-group-sm">
-                                                    <button class="btn btn-outline-primary">
+                                                    <a href="@Url.Action("EditUserRole", "Home", new { id = user.Id })" class="btn btn-outline-primary">
                                                         <i class="bi bi-pencil"></i>
-                                                    </button>
+                                                    </a>
                                                     @if (user.Role != "Admin")
                                                     {
 

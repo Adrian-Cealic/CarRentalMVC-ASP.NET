@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Data_Access_Layer;
 using BusinessLogic;
+using Domain;
 
 namespace CarRentalMVC_ASP.NET.Controllers
 {
@@ -63,6 +64,59 @@ namespace CarRentalMVC_ASP.NET.Controllers
 
             // Pass the users to the view
             return View(users);
+        }
+
+        // GET: Home/EditUserRole/5
+        public ActionResult EditUserRole(int id) // 'id' matches the route parameter
+        {
+            if (Session["UserRole"] as string != "Admin")
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            var user = _userService.GetUserById(id);
+            if (user == null)
+            {
+                return HttpNotFound();
+            }
+            // ViewBag.Roles = new List<string> { "Admin", "User" }; // Example for dropdown
+            return View(user);
+        }
+
+        // POST: Home/EditUserRole/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditUserRole(int id, string role) // Parameter 'role' from the form
+        {
+            if (Session["UserRole"] as string != "Admin")
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            // It's good practice to re-validate the model if you were binding to a full model
+            // For a single field like 'role', direct validation or service-layer validation is key.
+            // if (ModelState.IsValid) // More relevant if binding to a complex model
+            // {
+                var success = _userService.UpdateUserRole(id, role);
+                if (success)
+                {
+                    TempData["Message"] = "User role updated successfully!";
+                    return RedirectToAction("AdminPanel");
+                }
+                else
+                {
+                    // If update failed, user not found or role was invalid
+                    ModelState.AddModelError("", "Failed to update user role. User not found or invalid role.");
+                    var user = _userService.GetUserById(id); // Re-fetch user to repopulate view
+                    if (user == null) return HttpNotFound(); // Should not happen if update failed due to invalid role
+                    // ViewBag.Roles = new List<string> { "Admin", "User" }; // Repopulate for dropdown
+                    return View(user); // Return to view with error
+                }
+            // }
+            // var userToEdit = _userService.GetUserById(id); // Re-fetch if ModelState was invalid
+            // if (userToEdit == null) return HttpNotFound();
+            // ViewBag.Roles = new List<string> { "Admin", "User" }; // Repopulate for dropdown
+            // return View(userToEdit);
         }
 
         public ActionResult Rent()
