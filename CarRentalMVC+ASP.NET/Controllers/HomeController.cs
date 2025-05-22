@@ -228,7 +228,7 @@ namespace CarRentalMVC_ASP.NET.Controllers
             return RedirectToAction("ManageCars");
         }
 
-        // Update the Rent action to check for user login
+        // GET: Home/Rent/5
         public ActionResult Rent(int id)
         {
             // Check if user is logged in
@@ -237,9 +237,6 @@ namespace CarRentalMVC_ASP.NET.Controllers
                 // Store the car ID in TempData so we can redirect back after login
                 TempData["RentCarId"] = id;
                 TempData["ReturnUrl"] = Url.Action("Rent", "Home", new { id = id });
-                
-                // Set a message to inform the user why they were redirected
-                ViewBag.Message = "Please login to rent a car.";
                 
                 // Redirect to login page
                 return RedirectToAction("Login", "Auth");
@@ -260,7 +257,7 @@ namespace CarRentalMVC_ASP.NET.Controllers
             }
             
             // Create a new rental with default dates
-            var rental = new Rental
+            var rental = new Domain.Rental
             {
                 CarId = car.Id,
                 UserId = (int)Session["UserId"],
