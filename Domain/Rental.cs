@@ -27,7 +27,6 @@ namespace Domain
         public DateTime EndDate { get; set; }
 
         [DataType(DataType.Currency)]
-        [Column(TypeName = "decimal(18, 2)")]
         [Display(Name = "Total Price")]
         public decimal TotalPrice { get; set; }
 

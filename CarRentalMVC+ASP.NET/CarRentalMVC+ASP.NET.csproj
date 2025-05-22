@@ -208,6 +208,10 @@
     <Compile Include="Migrations\202505221656453_AddTransmissionToCar.Designer.cs">
       <DependentUpon>202505221656453_AddTransmissionToCar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202505221902355_AddRentalsTabel.cs" />
+    <Compile Include="Migrations\202505221902355_AddRentalsTabel.Designer.cs">
+      <DependentUpon>202505221902355_AddRentalsTabel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -390,6 +394,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202505221656453_AddTransmissionToCar.resx">
       <DependentUpon>202505221656453_AddTransmissionToCar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202505221902355_AddRentalsTabel.resx">
+      <DependentUpon>202505221902355_AddRentalsTabel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

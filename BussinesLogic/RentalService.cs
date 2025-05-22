@@ -90,10 +90,5 @@ namespace BusinessLogic
         {
             return UpdateRentalStatus(rentalId, RentalStatus.Cancelled);
         }
-
-        public bool CompleteRental(int rentalId)
-        {
-            return UpdateRentalStatus(rentalId, RentalStatus.Completed);
-        }
     }
 }
