@@ -28,5 +28,9 @@ namespace Domain
         public string ImageUrl { get; set; } // Optional, can be a URL to the car image
 
         public bool IsAvailable { get; set; } = true; // Default to available
+        
+        [Required]
+        [Display(Name = "Transmission")]
+        public string Transmission { get; set; } = "Automatic"; // Default to Automatic
     }
 } 

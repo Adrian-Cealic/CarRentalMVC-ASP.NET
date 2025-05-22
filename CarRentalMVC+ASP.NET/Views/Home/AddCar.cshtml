@@ -53,6 +53,19 @@
                 </div>
 
                 <div class="row mb-3">
+                    @Html.LabelFor(model => model.Transmission, htmlAttributes: new { @class = "col-md-2 col-form-label" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(model => model.Transmission, 
+                            new List<SelectListItem> { 
+                                new SelectListItem { Text = "Automatic", Value = "Automatic", Selected = true },
+                                new SelectListItem { Text = "Manual", Value = "Manual" }
+                            }, 
+                            new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.Transmission, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="row mb-3">
                     @Html.LabelFor(model => model.ImageUrl, htmlAttributes: new { @class = "col-md-2 col-form-label" })
                     <div class="col-md-10">
                         @Html.EditorFor(model => model.ImageUrl, new { htmlAttributes = new { @class = "form-control", type = "url" } })
