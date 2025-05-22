@@ -14,7 +14,7 @@ namespace CarRentalMVC_ASP.NET.Controllers
 
         public HomeController()
         {
-`            var context = new AppDbContext();
+            var context = new AppDbContext();
             _userService = new UserService(context);
         }
 
