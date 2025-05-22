@@ -38,7 +38,7 @@
                     @Html.ActionLink("Contact", "Contact", "Home", null, new { @class = "nav-item nav-link" })
 
                 </div>
-                <a href="#" class="btn btn-primary rounded-pill py-2 px-4">Get Started</a>
+                <a href="@Url.Action("Rent", "Home")" class="btn btn-primary rounded-pill py-2 px-4">Rent a Car</a>
                 <ul class="text-end list-inline">
                     @if (Session["UserId"] != null)
                     {

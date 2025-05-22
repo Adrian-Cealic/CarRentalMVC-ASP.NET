@@ -57,5 +57,10 @@ namespace CarRentalMVC_ASP.NET.Controllers
             return View(users);
         }
 
+        public ActionResult Rent()
+        {
+            return View();
+        }
+
     }
 }
