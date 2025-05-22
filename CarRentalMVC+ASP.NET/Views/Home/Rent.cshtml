@@ -1,12 +1,97 @@
-﻿
-@{
-    ViewBag.Title = "Rent";
+﻿@{
+    ViewBag.Title = "Rent a Car";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var car = ViewBag.Car as Domain.Car;
 }
 
-<main aria-labelledby="title">
-    <h2 id="title">@ViewBag.Title.</h2>
-    <h3>@ViewBag.Message</h3>
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">Rent a Car</h4>
+                </div>
+                <div class="card-body">
+                    <div class="row mb-4">
+                        <div class="col-md-4">
+                            @if (!string.IsNullOrEmpty(car.ImageUrl))
+                            {
+                                <img src="@car.ImageUrl" alt="@car.Make @car.Model" class="img-fluid rounded">
+                            }
+                            else
+                            {
+                                <img src="~/Content/img/car-default.jpg" alt="@car.Make @car.Model" class="img-fluid rounded">
+                            }
+                        </div>
+                        <div class="col-md-8">
+                            <h3>@car.Make @car.Model</h3>
+                            <p class="text-muted">@car.Year | @car.Transmission</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h5 class="text-primary">$@car.PricePerDay.ToString("0.00")/day</h5>
+                            </div>
+                        </div>
+                    </div>
 
-    <p>Use this area to provide additional information.</p>
-</main>
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.HiddenFor(model => model.CarId)
+
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                @Html.LabelFor(model => model.StartDate, new { @class = "form-label" })
+                                @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "form-control", type = "date", min = DateTime.Today.ToString("yyyy-MM-dd") } })
+                                @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-md-6">
+                                @Html.LabelFor(model => model.EndDate, new { @class = "form-label" })
+                                @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { @class = "form-control", type = "date", min = DateTime.Today.ToString("yyyy-MM-dd") } })
+                                @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            @Html.LabelFor(model => model.Notes, new { @class = "form-label" })
+                            @Html.TextAreaFor(model => model.Notes, new { @class = "form-control", rows = "3", placeholder = "Any special requests or notes?" })
+                            @Html.ValidationMessageFor(model => model.Notes, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="alert alert-info">
+                            <div class="d-flex justify-content-between">
+                                <span>Price per day:</span>
+                                <span>$@car.PricePerDay.ToString("0.00")</span>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <span>Total price will be calculated based on the selected dates.</span>
+                            </div>
+                        </div>
+
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <a href="@Url.Action("Cars", "Home")" class="btn btn-secondary me-md-2">Cancel</a>
+                            <button type="submit" class="btn btn-primary">Book Now</button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $(document).ready(function () {
+            // Update end date min value when start date changes
+            $('#StartDate').change(function () {
+                var startDate = $(this).val();
+                $('#EndDate').attr('min', startDate);
+                
+                // If end date is before start date, set end date to start date
+                if ($('#EndDate').val() < startDate) {
+                    $('#EndDate').val(startDate);
+                }
+            });
+        });
+    </script>
+}
