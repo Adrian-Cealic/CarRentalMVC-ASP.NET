@@ -3,35 +3,35 @@ using Domain;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace BusinessLogic
+namespace BusinessLogic.Api
 {
-    public class UserService
+    public class UserApi
     {
-        private readonly AppDbContext _context;
+        protected readonly AppDbContext _context;
 
-        public UserService(AppDbContext context)
+        public UserApi(AppDbContext context)
         {
             _context = context;
         }
 
-        public List<User> GetAllUsers()
+        internal List<User> GetAllUsersAction()
         {
             return _context.Users.ToList();
         }
 
-        public User GetUserById(int userId)
+        internal User GetUserByIdAction(int userId)
         {
             return _context.Users.FirstOrDefault(u => u.Id == userId);
         }
 
-        public bool UpdateUserRole(int userId, string newRole)
+        internal bool UpdateUserRoleAction(int userId, string newRole)
         {
             var user = _context.Users.FirstOrDefault(u => u.Id == userId);
             if (user != null)
             {
                 // Basic validation for role, you might want to make this more robust
                 // e.g., by checking against a list of valid roles or an enum
-                if (!string.IsNullOrWhiteSpace(newRole) && (newRole == "Admin" || newRole == "User")) // Example roles
+                if (!string.IsNullOrWhiteSpace(newRole) && (newRole == "Admin" || newRole == "User"))
                 {
                     user.Role = newRole;
                     _context.SaveChanges();
@@ -41,4 +41,4 @@ namespace BusinessLogic
             return false;
         }
     }
-} 
+}
