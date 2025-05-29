@@ -1,0 +1,343 @@
+@{
+    ViewBag.Title = "Our Team";
+}
+
+<!-- Header Banner -->
+<div class="container-fluid bg-primary py-5 mb-5">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 text-center">
+                <h1 class="display-4 text-white animated slideInDown mb-4">Our Team</h1>
+                <p class="fs-5 text-white mb-4">@ViewBag.Message</p>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center">
+                        <li class="breadcrumb-item"><a class="text-white" href="@Url.Action("Index", "Home")">Home</a></li>
+                        <li class="breadcrumb-item text-white active" aria-current="page">Our Team</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Leadership Section -->
+<div class="container py-5">
+    <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
+        <h1 class="display-5 text-capitalize mb-3">Our <span class="text-primary">Leadership</span></h1>
+        <p class="mb-0">
+            Meet the visionaries who guide our company with expertise and passion. Our leadership team brings decades of experience in the automotive and hospitality industries.
+        </p>
+    </div>
+    
+    <div class="row g-4">
+        <!-- CEO -->
+        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="team-item rounded overflow-hidden bg-light">
+                <div class="position-relative overflow-hidden">
+                    <img class="img-fluid w-100" src="~/Content/img/team-1.jpg" alt="Team Member">
+                    <div class="team-overlay">
+                        <div class="d-flex align-items-center justify-content-center">
+                            <a class="btn btn-square btn-outline-light mx-1" href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-square btn-outline-light mx-1" href="#"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-square btn-outline-light mx-1" href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-4">
+                    <h5 class="mb-1">Alexander Mitchell</h5>
+                    <small class="text-primary mb-3 d-block">Chief Executive Officer</small>
+                    <p>With over 20 years in the automotive industry, Alex has transformed Cental into a leading car rental service focused on customer satisfaction and innovation.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- COO -->
+        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+            <div class="team-item rounded overflow-hidden bg-light">
+                <div class="position-relative overflow-hidden">
+                    <img class="img-fluid w-100" src="~/Content/img/team-2.jpg" alt="Team Member">
+                    <div class="team-overlay">
+                        <div class="d-flex align-items-center justify-content-center">
+                            <a class="btn btn-square btn-outline-light mx-1" href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-square btn-outline-light mx-1" href="#"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-square btn-outline-light mx-1" href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-4">
+                    <h5 class="mb-1">Sophia Rodriguez</h5>
+                    <small class="text-primary mb-3 d-block">Chief Operations Officer</small>
+                    <p>Sophia ensures our day-to-day operations run smoothly across all locations. Her expertise in logistics and customer service has been vital to our growth.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- CTO -->
+        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+            <div class="team-item rounded overflow-hidden bg-light">
+                <div class="position-relative overflow-hidden">
+                    <img class="img-fluid w-100" src="~/Content/img/team-3.jpg" alt="Team Member">
+                    <div class="team-overlay">
+                        <div class="d-flex align-items-center justify-content-center">
+                            <a class="btn btn-square btn-outline-light mx-1" href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-square btn-outline-light mx-1" href="#"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-square btn-outline-light mx-1" href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-4">
+                    <h5 class="mb-1">David Chang</h5>
+                    <small class="text-primary mb-3 d-block">Chief Technology Officer</small>
+                    <p>David leads our digital transformation, overseeing our booking platform and mobile applications to deliver a seamless customer experience.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Department Sections -->
+<div class="container-fluid bg-light py-5">
+    <div class="container py-5">
+        <div class="text-center mb-5">
+            <h2 class="display-5 mb-3">Meet Our <span class="text-primary">Departments</span></h2>
+            <p class="fs-5">The talented teams that make your car rental experience exceptional</p>
+        </div>
+        
+        <!-- Customer Service Team -->
+        <div class="row align-items-center mb-5 g-5">
+            <div class="col-lg-6 wow fadeInLeft" data-wow-delay="0.1s">
+                <h3 class="mb-4">Customer Service Team</h3>
+                <p class="mb-4">Our customer service representatives are the heart of Cental. They're dedicated to providing you with exceptional support from booking to return. Available 24/7, our team speaks multiple languages and is trained to handle all your rental needs with professionalism and care.</p>
+                
+                <div class="row g-4">
+                    <div class="col-sm-6">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="bi bi-check-circle-fill text-primary fs-4 me-2"></i>
+                            <h6 class="mb-0">24/7 Support</h6>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="bi bi-check-circle-fill text-primary fs-4 me-2"></i>
+                            <h6 class="mb-0">Multilingual Staff</h6>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="bi bi-check-circle-fill text-primary fs-4 me-2"></i>
+                            <h6 class="mb-0">Rapid Response</h6>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="bi bi-check-circle-fill text-primary fs-4 me-2"></i>
+                            <h6 class="mb-0">Problem Solvers</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.5s">
+                <div class="row g-3">
+                    <div class="col-6">
+                        <img class="img-fluid rounded" src="~/Content/img/team-cs-1.jpg" alt="Customer Service Team">
+                    </div>
+                    <div class="col-6">
+                        <img class="img-fluid rounded" src="~/Content/img/team-cs-2.jpg" alt="Customer Service Team">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Fleet Management Team -->
+        <div class="row align-items-center flex-row-reverse mb-5 g-5">
+            <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.1s">
+                <h3 class="mb-4">Fleet Management Team</h3>
+                <p class="mb-4">Our fleet managers ensure that every vehicle in our lineup is maintained to the highest standards of safety and performance. From regular servicing to cleaning and inspections, our team makes sure you drive away in a vehicle that meets our stringent quality standards.</p>
+                
+                <div class="row g-4">
+                    <div class="col-sm-6">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="bi bi-check-circle-fill text-primary fs-4 me-2"></i>
+                            <h6 class="mb-0">Regular Maintenance</h6>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="bi bi-check-circle-fill text-primary fs-4 me-2"></i>
+                            <h6 class="mb-0">Safety Inspections</h6>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="bi bi-check-circle-fill text-primary fs-4 me-2"></i>
+                            <h6 class="mb-0">Vehicle Upgrades</h6>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="bi bi-check-circle-fill text-primary fs-4 me-2"></i>
+                            <h6 class="mb-0">Quality Control</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-6 wow fadeInLeft" data-wow-delay="0.5s">
+                <div class="row g-3">
+                    <div class="col-6">
+                        <img class="img-fluid rounded" src="~/Content/img/team-fleet-1.jpg" alt="Fleet Management Team">
+                    </div>
+                    <div class="col-6">
+                        <img class="img-fluid rounded" src="~/Content/img/team-fleet-2.jpg" alt="Fleet Management Team">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Sales & Marketing Team -->
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6 wow fadeInLeft" data-wow-delay="0.1s">
+                <h3 class="mb-4">Sales & Marketing Team</h3>
+                <p class="mb-4">Our dynamic sales and marketing professionals are dedicated to bringing you the best deals and keeping you informed about our latest offerings. They work tirelessly to create partnerships and promotions that add value to your rental experience.</p>
+                
+                <div class="row g-4">
+                    <div class="col-sm-6">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="bi bi-check-circle-fill text-primary fs-4 me-2"></i>
+                            <h6 class="mb-0">Special Promotions</h6>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="bi bi-check-circle-fill text-primary fs-4 me-2"></i>
+                            <h6 class="mb-0">Corporate Partnerships</h6>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="bi bi-check-circle-fill text-primary fs-4 me-2"></i>
+                            <h6 class="mb-0">Loyalty Programs</h6>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="bi bi-check-circle-fill text-primary fs-4 me-2"></i>
+                            <h6 class="mb-0">Market Research</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.5s">
+                <div class="row g-3">
+                    <div class="col-6">
+                        <img class="img-fluid rounded" src="~/Content/img/team-sales-1.jpg" alt="Sales Team">
+                    </div>
+                    <div class="col-6">
+                        <img class="img-fluid rounded" src="~/Content/img/team-sales-2.jpg" alt="Sales Team">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Team Stats -->
+<div class="container py-5">
+    <div class="row g-4 text-center">
+        <div class="col-md-3 col-6 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="fact-item">
+                <i class="bi bi-people-fill display-4 text-primary mb-3"></i>
+                <h1 class="display-5 mb-0" data-toggle="counter-up">150</h1>
+                <p class="mb-0">Team Members</p>
+            </div>
+        </div>
+        <div class="col-md-3 col-6 wow fadeInUp" data-wow-delay="0.3s">
+            <div class="fact-item">
+                <i class="bi bi-briefcase-fill display-4 text-primary mb-3"></i>
+                <h1 class="display-5 mb-0" data-toggle="counter-up">15</h1>
+                <p class="mb-0">Years Experience</p>
+            </div>
+        </div>
+        <div class="col-md-3 col-6 wow fadeInUp" data-wow-delay="0.5s">
+            <div class="fact-item">
+                <i class="bi bi-geo-alt-fill display-4 text-primary mb-3"></i>
+                <h1 class="display-5 mb-0" data-toggle="counter-up">25</h1>
+                <p class="mb-0">Office Locations</p>
+            </div>
+        </div>
+        <div class="col-md-3 col-6 wow fadeInUp" data-wow-delay="0.7s">
+            <div class="fact-item">
+                <i class="bi bi-trophy-fill display-4 text-primary mb-3"></i>
+                <h1 class="display-5 mb-0" data-toggle="counter-up">12</h1>
+                <p class="mb-0">Industry Awards</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Join Our Team CTA -->
+<div class="container-fluid py-5 bg-primary">
+    <div class="container py-5 text-center text-white">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 wow fadeInUp" data-wow-delay="0.1s">
+                <h2 class="display-5 mb-4">Join Our Team</h2>
+                <p class="fs-5 mb-4">Looking to build a career with a dynamic, growing company? We're always looking for talented individuals to join the Cental family. Check out our current openings and become part of our success story.</p>
+                <a href="#" class="btn btn-light py-3 px-5">View Career Opportunities</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap Icons CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+<style>
+    .team-item {
+        transition: all 0.3s;
+    }
+    
+    .team-item:hover {
+        transform: translateY(-10px);
+    }
+    
+    .team-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        transition: all 0.5s;
+    }
+    
+    .team-item:hover .team-overlay {
+        opacity: 1;
+    }
+    
+    .btn-square {
+        width: 38px;
+        height: 38px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 4px;
+    }
+    
+    .fact-item {
+        padding: 30px;
+        box-shadow: 0 0 45px rgba(0, 0, 0, .07);
+        border-radius: 8px;
+        background: var(--bs-light);
+        transition: all 0.3s;
+    }
+    
+    .fact-item:hover {
+        transform: translateY(-5px);
+    }
+</style> 

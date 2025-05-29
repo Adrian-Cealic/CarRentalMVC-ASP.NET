@@ -416,5 +416,13 @@ namespace CarRentalMVC_ASP.NET.Controllers
             return View();
         }
 
+        // Action for team page
+        public ActionResult Team()
+        {
+            ViewBag.Message = "Meet the dedicated professionals behind Cental's exceptional car rental services.";
+
+            return View();
+        }
+
     }
 }
