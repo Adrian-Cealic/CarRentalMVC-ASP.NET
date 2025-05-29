@@ -9,12 +9,7 @@ namespace BusinessLogic
 {
     public class UserService : UserApi, IUserService
     {
-        private readonly AppDbContext _context;
-
-        public UserService(AppDbContext context)
-        {
-            _context = context;
-        }
+        public UserService(AppDbContext context) : base(context) { }
 
         public List<User> GetAllUsers()
         {

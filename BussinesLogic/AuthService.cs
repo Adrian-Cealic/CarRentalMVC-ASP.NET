@@ -4,10 +4,11 @@ using System.Linq;
 using Domain;
 using Helpers; // For password hashing
 using Data_Access_Layer;
+using BusinessLogic.Interfaces;
 
 namespace BusinessLogic
 {
-    public class AuthService
+    public class AuthService : IAuthService
     {
         private readonly AppDbContext _context;
 
@@ -44,5 +45,4 @@ namespace BusinessLogic
             return true;
         }
     }
-
 }

@@ -4,10 +4,12 @@ using System.Linq;
 using System.Data.Entity;
 using Data_Access_Layer;
 using Domain;
+using BusinessLogic.Interfaces;
+using BusinessLogic.Api;
 
 namespace BusinessLogic
 {
-    public class RentalService
+    public class RentalService : IRentalService
     {
         private readonly AppDbContext _context;
 
@@ -88,7 +90,23 @@ namespace BusinessLogic
 
         public bool CancelRental(int rentalId)
         {
-            return UpdateRentalStatus(rentalId, RentalStatus.Cancelled);
+            var rental = _context.Rentals
+                .Include(r => r.Car)
+                .FirstOrDefault(r => r.Id == rentalId);
+
+            if (rental == null || rental.Status == RentalStatus.Completed)
+                return false;
+
+            rental.Status = RentalStatus.Cancelled;
+            
+            // Make the car available again
+            if (rental.Car != null)
+            {
+                rental.Car.IsAvailable = true;
+            }
+            
+            _context.SaveChanges();
+            return true;
         }
     }
 }
