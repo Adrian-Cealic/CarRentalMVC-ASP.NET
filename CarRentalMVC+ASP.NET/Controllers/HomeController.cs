@@ -6,21 +6,24 @@ using System.Web.Mvc;
 using Data_Access_Layer;
 using BusinessLogic;
 using Domain;
+using BusinessLogic.Interfaces;
 
 namespace CarRentalMVC_ASP.NET.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly UserService _userService;
-        private readonly CarService _carService;
-        private readonly RentalService _rentalService;
+        private readonly IUserService _userService;
+        private readonly ICarService _carService;
+        private readonly IRentalService _rentalService;
+        private readonly BusinessLogicFactory _businessLogicFactory;
 
         public HomeController()
         {
             var context = new AppDbContext();
-            _userService = new UserService(context);
-            _carService = new CarService(context);
-            _rentalService = new RentalService(context);
+            _businessLogicFactory = new BusinessLogicFactory(context);
+            _userService = _businessLogicFactory.GetUserService();
+            _carService = _businessLogicFactory.GetCarService();
+            _rentalService = _businessLogicFactory.GetRentalService();
         }
 
         // Action for main page

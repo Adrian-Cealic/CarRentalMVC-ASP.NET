@@ -2,30 +2,29 @@ using Data_Access_Layer;
 using Domain;
 using System.Collections.Generic;
 using System.Linq;
-using System.Data.Entity; // Required for Include if you use it later
 
-namespace BusinessLogic
+namespace BusinessLogic.Api
 {
-    public class CarService
+    public class CarApi
     {
-        private readonly AppDbContext _context;
+        protected readonly AppDbContext _context;
 
-        public CarService(AppDbContext context)
+        public CarApi(AppDbContext context)
         {
             _context = context;
         }
 
-        public List<Car> GetAllCars()
+        internal List<Car> GetAllCarsAction()
         {
             return _context.Cars.ToList();
         }
 
-        public Car GetCarById(int carId)
+        internal Car GetCarByIdAction(int carId)
         {
             return _context.Cars.FirstOrDefault(c => c.Id == carId);
         }
 
-        public bool AddCar(Car car)
+        internal bool AddCarAction(Car car)
         {
             if (car == null)
             {
@@ -37,7 +36,7 @@ namespace BusinessLogic
             return true;
         }
 
-        public bool UpdateCar(Car car)
+        internal bool UpdateCarAction(Car car)
         {
             var existingCar = _context.Cars.Find(car.Id);
             if (existingCar == null)
@@ -50,7 +49,7 @@ namespace BusinessLogic
             return true;
         }
 
-        public bool DeleteCar(int carId)
+        internal bool DeleteCarAction(int carId)
         {
             var car = _context.Cars.Find(carId);
             if (car == null)
@@ -63,4 +62,4 @@ namespace BusinessLogic
             return true;
         }
     }
-} 
+}
